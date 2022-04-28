@@ -1,15 +1,13 @@
 const express = require("express");
-let app = express();
+const bodyParser = require("body-parser");
 require("dotenv").config();
+let app = express();
+app.use(bodyParser.json());
+
 const routes = require("./routes/index.route.js");
 app.use(routes);
 
 const database = require("./configs/connection.js");
-const Student = require("./models/student.model.js");
-
-// Student.find({ name: "bv" }, (error, result) => {
-//   console.log(result);
-// });
 
 app.listen(process.env.PORT, () => {
   console.log("Server listening on port " + process.env.PORT);
