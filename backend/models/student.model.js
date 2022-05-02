@@ -1,9 +1,11 @@
 const { Schema, model } = require("mongoose");
 const Course = require("./course.model.js");
+const bcrypt = require("bcrypt");
+
 const studentSchema = Schema({
   name: {
     type: String,
-    required: true,
+    // required: true,
   },
   email: {
     type: String,
@@ -13,7 +15,6 @@ const studentSchema = Schema({
   password: {
     type: String,
     required: true,
-    select: false,
   },
   role: {
     type: String,
@@ -34,5 +35,20 @@ const studentSchema = Schema({
     },
   ],
 });
+
+studentSchema.pre("save", async function (next) {
+  const user = this;
+  const hash = await bcrypt.hash(this.password, 10);
+
+  this.password = hash;
+  next();
+});
+
+studentSchema.methods.isValidPassword = async function (password) {
+  const user = this;
+  const compare = await bcrypt.compare(password, user.password);
+
+  return compare;
+};
 
 module.exports = model("Student", studentSchema);

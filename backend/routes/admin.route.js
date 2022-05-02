@@ -1,10 +1,10 @@
 const express = require("express");
-const { nextTick } = require("process");
+
 const app = express();
 const adminRouter = express.Router();
 const studentModel = require("../models/student.model.js");
 
-adminRouter.get("/getstudents", (req, res) => {
+adminRouter.get("/get-students", (req, res) => {
   studentModel.find((err, students) => {
     if (err) {
       console.log(err);
@@ -14,13 +14,13 @@ adminRouter.get("/getstudents", (req, res) => {
   });
 });
 
-adminRouter.get("/getstudent/:id", (req, res) => {
+adminRouter.get("/get-student/:id", (req, res) => {
   studentModel.findById(req.params.id, (err, student) => {
     res.json(student);
   });
 });
 
-adminRouter.get("/updatestudent/:id", (req, res) => {
+adminRouter.get("/updates-tudent/:id", (req, res) => {
   studentModel.findByIdAndUpdate(req.params.id, req.body, (err, student) => {
     if (!student) {
       return next(new Error("Unable to find Student with requested ID"));
@@ -39,7 +39,7 @@ adminRouter.get("/updatestudent/:id", (req, res) => {
   });
 });
 
-adminRouter.get("/deletestudent/:id", (req, res) => {
+adminRouter.get("/delete-student/:id", (req, res) => {
   studentModel.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
       res.json(err);

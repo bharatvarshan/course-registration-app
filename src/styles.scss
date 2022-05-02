@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+
+@font-face {
+    font-family: Poppins;
+    src: url(assets/fonts/Poppins/Poppins-Regular.ttf) format("opentype");
+  }
+
+  *{
+    font-family: Poppins;
+  }
+
+body {
+     margin: 0;
+    font-family: Poppins}
