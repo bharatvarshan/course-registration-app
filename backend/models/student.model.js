@@ -27,10 +27,7 @@ const studentSchema = Schema({
       course: {
         type: Schema.Types.ObjectId,
         ref: Course,
-      },
-      enrolled: {
-        type: Boolean,
-        default: false,
+        unique: false,
       },
     },
   ],

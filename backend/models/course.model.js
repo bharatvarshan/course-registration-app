@@ -18,6 +18,9 @@ const courseSchema = Schema({
     required: true,
     enum: ["Web Development", "App Development", "Cloud", "Cyber Security"],
   },
+  studentsEnrolled: {
+    type: Number,
+  },
 });
 
 module.exports = model("Course", courseSchema);

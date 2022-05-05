@@ -31,7 +31,7 @@ authRouter.post("/login", async (req, res, next) => {
         if (error) return next(error);
         const body = { email: user.email };
         const token = jwt.sign({ user: body }, process.env.JWT_SECRET, {
-          expiresIn: 60,
+          expiresIn: 60 * 60,
         });
         passport.serializeUser(function (user, done) {
           done(null, user.id);
