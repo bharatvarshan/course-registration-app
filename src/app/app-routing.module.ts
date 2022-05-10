@@ -1,10 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddStudentComponent } from './components/admin/add-student/add-student.component';
-import { EditStudentComponent } from './components/admin/edit-student/edit-student.component';
-import { StudentsListComponent } from './components/admin/students-list/students-list.component';
+import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./modules/user/user.module').then((module) => module.UserModule),
+  },
+  {
+    path: 'courses',
+    loadChildren: () =>
+      import('./modules/course/course.module').then(
+        (module) => module.CourseModule
+      ),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

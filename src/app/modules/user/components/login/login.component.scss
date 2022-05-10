@@ -1,0 +1,85 @@
+h1,h2,h3,h4,h5,h6,p ,label,input{
+    color: white;
+    font-family: Poppins;
+
+}
+
+.login{
+background-color: black;    height: 100vh;
+    display: flex;
+    font-family: Poppins;
+
+}
+
+.login__content{
+
+    width: 40%;
+    background-color:#0D0F13;
+    text-align: center;
+    padding-top:  20vh;
+
+}
+
+.login__content > form{
+    margin: 10% 20%;
+}
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup > label{
+    float: left;
+    text-align: start;
+    font-size: 16px;
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+.inputGroup > input{
+    border: 1px solid white;
+    background-color: inherit;
+    padding: 10px 10px 10px 14px;
+    font-size: 16px;
+}
+
+.custom__button{
+  background-color: #0078b8;
+  border: 1px #0078b8 solid;
+  color: white;
+  border-radius: 2px;
+  padding: 10px 16px;
+  margin: 20px auto;
+  font-size: 16px;
+  width: 100%;
+}   
+
+.custom__button:hover {
+    background-color: #006093;
+}
+
+a{
+    text-decoration: none;
+}
+
+.forgot_p{
+    color: #0078b8;
+    font-size: 16px;
+}
+
+.login__registerButton{
+    background-color: #747474;
+  border: 1px #747474 solid;
+  color: white;
+  border-radius: 2px;
+  padding: 10px 16px;
+margin: 8px 20%;
+  font-size: 16px;
+  width: 60% ;
+}
+
+.login__right{
+text-align: center;
+    padding-top: 20%;
+}

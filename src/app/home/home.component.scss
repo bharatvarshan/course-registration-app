@@ -1,0 +1,54 @@
+.home{
+    height: 100vh;
+    background-color: rgb(33, 33, 33);
+    font-family: Poppins;
+}
+
+  h1,h2,h3,h4,h5,h6,p {
+    color: white;
+        font-family: Poppins;
+
+}
+h1{
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1.25em;
+}
+
+p{
+    margin-right: 20%;
+}
+
+
+.home__body{
+    display: flex;
+    // height: 100%;
+}
+
+.home__left{
+    width: 50%;
+    float: left;
+    padding: 15% 10%;
+}
+
+.home__registerButton{
+background-color: inherit;
+  border: 1px white solid;
+  color: white;
+  border-radius: 2px;
+  padding: 12px 18px;
+  margin: 8px;
+  font-size: 22px;
+  margin: 0;
+}
+
+.home__right{
+    width: 50%;
+    float: right;
+}
+
+.home__right > img{
+    width: 75%;
+    margin-top: 20%;
+}

@@ -1,0 +1,212 @@
+h1,h2,h3,h4,h5,h6,p ,button,input,hr{
+    color: white;
+    font-family: Poppins;
+  
+  }
+  .browse__filterContent{
+      color: white;
+  }
+  a{
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+  }
+
+.browse{
+    background-color: #181818;
+    // min-height: 100%;
+}
+
+.browse__categories {
+display: flex;
+// width: 300em;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+h1{
+    margin: 20px auto auto 20px;
+}
+
+.browse__category{
+    background-color: #222222;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 10px;
+    width: 20%;
+    display: flex;
+}
+
+.browse__categoryLeft{
+    flex: 1;
+}
+
+.browse__categoryRight {
+    text-align: end;
+    flex: 1;
+}
+
+.browse__categoryTitle{
+    font-weight: thin;
+    font-size: 24px;
+}
+
+.browse__categoryImage{
+width: 50%;
+
+}
+
+.browse__categoryPath{
+    color: rgb(254, 0, 203);
+}
+
+
+
+.browse__search{
+    display: flex;
+    margin: 10px;
+}
+
+.browse__searchBarDiv{
+    flex: 85%;
+    background-color: #222222;
+    padding: 25px;
+    margin-left: 10px;
+    
+}
+
+.browse__searchBar{
+border: none;
+    background-color: inherit;
+    width: 100%;
+    outline: none;
+
+}
+
+.browse__sortButton{
+flex : 15%;
+background-color: inherit;
+border: 1px solid white;
+font-size: 20px;
+margin-left: 20px;
+}
+
+
+.browse__content{
+    display: flex;
+}
+
+.browse__leftContent{
+    flex: 25%;
+    margin: 10px 20px;
+    // padding: auto 5%;
+}
+
+
+.browse__filter{
+    margin: 10% 15%;
+    margin-top: 0;
+}
+
+.browse__filter > hr{
+    margin: 16px auto ;
+    margin-top: 0;
+}
+
+
+
+.browse__filterHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.browse__filterHeader > h3{
+    display: flex;
+    justify-content: space-between;
+   margin: 5px 0;
+   color:rgb(254, 0, 203);
+
+
+}
+
+.browse__filterHeader > i{
+    color: white;
+    margin: 10px;
+}
+
+
+
+.browse__filterContent > label{
+    color: white;
+    margin: 10px;
+    font-size: 18px;
+
+}
+
+.browse__rightContent{
+    flex: 75%;
+    margin: 10px;
+
+}
+
+.browse__courseContent{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    margin-right: 10%;
+    background-color: #222222;
+    padding: 2%;
+}
+
+.browse__courseTitle{
+    margin: 0;
+}
+
+.browse__courseAuthor{
+    // margin: 0;
+    color: rgb(254, 0, 203);
+}
+
+
+.browse__courseInfo{
+    display: flex;
+
+}
+
+.courseInfo{
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.courseInfo:after{
+    content:"\A";
+    color: white;
+}
+
+.browse__courseSeller{
+    background-color: #0078b8;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    
+}
+
+.browse__courseDuration > i{
+    color: orange;
+}
+
+.browse__courseRating > i{
+    color: rgb(229, 196, 12);
+}
+
+.browse__courseEnrollButton{
+    background-color: inherit;
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.browse__courseEnrollButton:hover{
+    background-color: white;
+    color: #222222;
+    border: 1px solid white;
+}
