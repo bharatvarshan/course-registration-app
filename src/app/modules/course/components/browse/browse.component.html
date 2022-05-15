@@ -2,6 +2,7 @@
   <app-navbar></app-navbar>
   <h1>Popular topics to learn now </h1>
 
+
   <div class="browse__categories">
 
     <div class="browse__category">
@@ -118,7 +119,7 @@
         <hr>
         <div class="browse__filterContent">
           <input type="checkbox" name="20 hours" id="20hours">
-          <label for="20hours">Above 20 Hours</label>
+          <label for="20hours">Above 30 Hours</label>
         </div>
         <div class="browse__filterContent">
           <input type="checkbox" name="20 hours" id="20hours">
@@ -126,58 +127,39 @@
         </div>
         <div class="browse__filterContent">
           <input type="checkbox" name="20 hours" id="20hours">
-          <label for="20hours">Above 20 Hours</label>
+          <label for="20hours">Above 10 Hours</label>
         </div>
         <div class="browse__filterContent">
           <input type="checkbox" name="20 hours" id="20hours">
-          <label for="20hours">Above 20 Hours</label>
+          <label for="20hours">Above 5 Hours</label>
         </div>
       </div>
     </div>
     <div class="browse__rightContent">
-      <div class="browse__courseContent">
+
+
+      <div class="browse__courseContent" *ngFor="let course of courses">
         <div class="browse__leftCourseContent">
           <h1 class="browse__courseTitle">
-            Complete Angular Bootcamp
+            {{course.courseName}}
           </h1>
           <h3 class="browse__courseAuthor">
-            by Bharat Varshan S M
+            by {{course.instructorName}}
           </h3>
           <div class="browse__courseInfo">
+            <p class="browse__courseSeller courseInfo">{{course.category}} </p>
 
-            <p class="browse__courseDuration courseInfo">3h 19m <i class="fa fa-clock-o"></i> </p>
-            <p class="browse__courseLevel courseInfo">Intermediate <i class="fa fa-bar-chart-o"></i></p>
-            <p class="browse__courseRating courseInfo">4.5 <i class="fa fa-star"></i></p>
+            <p class="browse__courseDuration courseInfo">{{course.courseDuration}} <i class="fa fa-clock-o"></i> </p>
+            <p class="browse__courseLevel courseInfo">{{course.level}} <i class="fa fa-bar-chart-o"></i></p>
+            <p class="browse__courseRating courseInfo">{{course.rating || 5}} <i class="fa fa-star"></i>
+            </p>
 
           </div>
         </div>
         <div class="browse__rightCourseContent">
-          <h3>₹ 2399</h3>
-          <button class="browse__courseEnrollButton">Enroll Now</button>
-        </div>
-
-      </div>
-
-      <div class="browse__courseContent">
-        <div class="browse__leftCourseContent">
-          <h1 class="browse__courseTitle">
-            Complete Angular Bootcamp
-          </h1>
-          <h3 class="browse__courseAuthor">
-            by Bharat Varshan S M
-          </h3>
-          <div class="browse__courseInfo">
-            <p class="browse__courseSeller courseInfo">Bestseller </p>
-
-            <p class="browse__courseDuration courseInfo">3h 19m <i class="fa fa-clock-o"></i> </p>
-            <p class="browse__courseLevel courseInfo">Intermediate <i class="fa fa-bar-chart-o"></i></p>
-            <p class="browse__courseRating courseInfo">4.5 <i class="fa fa-star"></i></p>
-
-          </div>
-        </div>
-        <div class="browse__rightCourseContent">
-          <h3>₹ 2399</h3>
-          <button class="browse__courseEnrollButton">Enroll Now</button>
+          <h3>₹ {{course.price}}</h3>
+          <a [routerLink]="['/courses/course', course._id ]"> <button class="browse__courseEnrollButton">View
+              More</button></a>
         </div>
 
       </div>

@@ -1,16 +1,17 @@
 <div class="login">
   <div class="login__content">
     <h1>Login</h1>
-    <form>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" ngNativeValidate>
       <div class="inputGroup">
         <label for="email">Email</label>
-        <input type="text" id="email" placeholder="Enter your email">
+        <input type="text" id="email" name="email" required placeholder="Enter your email" [(ngModel)]="model.email">
       </div>
       <div class="inputGroup">
         <label for="password">Password</label>
-        <input type="text" id="password" placeholder="Enter your password">
+        <input type="password" id="password" name="password" required="" placeholder="Enter your password"
+          [(ngModel)]="model.password">
       </div>
-      <input class="custom__button" type="button" value="Log in">
+      <input class=" custom__button" type="submit" value="Log in">
     </form>
 
     <a href="/users/forgot-password">

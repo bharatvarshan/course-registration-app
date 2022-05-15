@@ -28,10 +28,19 @@
 
 
   </div>
-  <div class="navbar__right">
+  <div class="navbar__right" *ngIf="userService.isLoggedIn==='no'">
     <a href="/users/register"> <button class="navbar__button">Register</button></a>
 
     <a href="/users/login"> <button class="navbar__button">Login</button></a>
+
+  </div>
+
+  <div class="navbar__right" *ngIf="userService.isLoggedIn==='yes'">
+
+    <a href="/users/my-enrollments">My Enrollments</a>
+    <button (click)="logout()" class="navbar__button">Logout</button>
+
+
 
   </div>
 </div>

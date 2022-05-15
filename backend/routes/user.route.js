@@ -29,15 +29,28 @@ userRouter.get("/list-course-by-category/:category", (req, res) => {
   });
 });
 
-userRouter.get("/:id/enroll-course", (req, res, next) => {
+userRouter.get("/enrollments/:id", (req, res) => {
+  studentModel.findById(req.params.id, (err, student) => {
+    if (err) throw err;
+    if (student.courses == null) {
+      res.send("[]");
+    } else {
+      res.json(student.courses);
+    }
+  });
+});
+
+userRouter.get("/:id/enroll-course/:courseid", (req, res, next) => {
   studentModel.findByIdAndUpdate(
     req.params.id,
-    { $push: { courses: req.body } },
+    { $addToSet: { courses: req.params.courseid } },
     (err, student) => {
       if (err) {
         console.log(err);
+      } else if (!student) {
+        res.json("No User available");
       } else {
-        res.json("Course Enrolled");
+        res.json(student);
       }
     }
   );

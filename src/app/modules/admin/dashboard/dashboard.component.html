@@ -1,0 +1,121 @@
+<app-navbar></app-navbar>
+
+<div class="dashboard">
+  <h1>Overall stats</h1>
+
+  <div class="dashboard__categories">
+    <div class="dashboard__category">
+      <div class="dashboard__categoryLeft">
+        <p class="dashboard__categoryPath">USERS</p>
+        <p>No of Users</p>
+
+        <h3 class="dashboard__categoryTitle">
+          {{users.length}}
+        </h3>
+        <!-- <a class="dashboard__categoryLink" href="category Detail">Take a look
+          </a> -->
+      </div>
+
+      <div class="dashboard__categoryRight">
+        <p><i class="fa fa-users fa-2x"></i></p>
+
+      </div>
+
+    </div>
+    <div class="dashboard__category">
+      <div class="dashboard__categoryLeft">
+        <p class="dashboard__categoryPath">COURSES</p>
+        <p>No of Courses</p>
+
+        <h3 class="dashboard__categoryTitle">
+          {{courses.length}}
+        </h3>
+        <!-- <a class="dashboard__categoryLink" href="category Detail">Take a look
+            </a> -->
+      </div>
+
+      <div class="dashboard__categoryRight">
+        <p><i class="fa fa-book fa-2x"></i></p>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="dashboard__datas">
+    <div class="dashboard__dataTitles">
+      <button class="dashboard__dataTitle" onclick="toggleElement()">User</button>
+      <button class="dashboard__dataTitle" onclick="toggleElement()">Courses</button>
+    </div>
+    <div class="dashboard__userData" *ngIf="activeElement == 'users'">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Courses</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+          </tr>
+        </thead>
+        <tbody *ngFor="let user of users">
+          <tr>
+            <td>{{user._id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+
+            <td>{{user.role}}</td>
+            <td *ngIf="user.courses == ''">No Courses Enrolled</td>
+
+            <td *ngIf="user.courses != ''">{{user.courses}}</td>
+            <td><button class=" editButton">Edit</button></td>
+            <td><button class="deleteButton">Delete</button></td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="dashboard__userData" *ngIf="activeElement == 'courses'">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Course Name</th>
+            <th>Course Instructor</th>
+            <th>Course Duration</th>
+            <th>Level</th>
+            <th>Category</th>
+            <th>Edit</th>
+
+            <th>Delete</th>
+
+          </tr>
+        </thead>
+        <tbody *ngFor="let course of courses">
+          <tr>
+            <td>{{course._id}}</td>
+            <td>{{course.courseName}}</td>
+            <td>{{course.instructorName}}</td>
+
+            <td>{{course.courseDuration}}</td>
+            <td>{{course.level}}</td>
+
+            <td>{{course.category}}</td>
+
+            <!-- <td *ngIf="user.courses == ''">No Courses Enrolled</td>
+
+            <td *ngIf="user.courses != ''">{{user.courses}}</td> -->
+            <td><button class=" editButton">Edit</button></td>
+            <td><button class="deleteButton">Delete</button></td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -22,15 +22,9 @@ const studentSchema = Schema({
     enum: ["student", "admin"],
     default: "student",
   },
-  courses: [
-    {
-      course: {
-        type: Schema.Types.ObjectId,
-        ref: Course,
-        unique: false,
-      },
-    },
-  ],
+  courses: {
+    type: [],
+  },
 });
 
 studentSchema.pre("save", async function (next) {

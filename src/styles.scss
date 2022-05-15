@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(~bootstrap/dist/css/bootstrap.min.css);
 @import url(~font-awesome/css/font-awesome.css);
-
+@import url(~angular-notifier/styles);
 html, body { height: 100%; }
 
 @font-face {
@@ -21,3 +21,16 @@ body {
      margin: 0;
     font-family: Poppins
   }
+
+  .fa-star{
+    color: gold;
+    margin-right: 4px;
+}
+
+.fa-bar-chart-o{
+  color: #f05a28
+}
+
+.fa-clock-o{
+  color: #f05a28
+}

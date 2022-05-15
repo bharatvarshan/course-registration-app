@@ -1,0 +1,100 @@
+h1,h2,h3,h4,h5,h6,p ,button,input,hr,nav{
+    color: white;
+    font-family: Poppins;
+}
+  
+a{
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+.enrollments{
+    background-color: #181818;
+    min-height: 100%;
+}
+
+.enrollments__title{
+    padding: 20px;
+    font-weight: 900;
+}
+
+
+.enrollments__courseContent{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    background-color: #222222;
+    padding: 2%;
+}
+
+.enrollments__courseEmptyContent{
+    
+    margin: 10%;
+    padding: 10%;
+    background-color: #222222;
+    text-align: center;
+}
+
+.enrollments__courseEmptyContent > h3{
+    margin: 0;
+}
+
+.enrollments__courseContent:hover{
+    background-color: #333333;
+
+}
+
+.enrollments__courseTitle{
+    margin: 0;
+}
+
+.enrollments__courseAuthor{
+    // margin: 0;
+    color: rgb(254, 0, 203);
+}
+
+
+.enrollments__courseInfo{
+    display: flex;
+
+}
+
+.courseInfo{
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+// .courseInfo:after{
+//     content:"•";
+//     color: white;
+//     margin: auto 16px;
+// }
+
+.enrollments__courseSeller{
+    background-color: #0078b8;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    
+}
+
+.enrollments__courseDuration > i{
+    color: orange;
+}
+
+.enrollments__courseRating > i{
+    color: rgb(229, 196, 12);
+}
+
+.enrollments__browseButton{
+    background-color: inherit;
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.enrollments__browseButton:hover{
+    background-color: white;
+    color: #222222;
+    border: 1px solid white;
+}

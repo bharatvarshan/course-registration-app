@@ -13,6 +13,14 @@ const courseSchema = Schema({
     type: String,
     required: true,
   },
+  courseShortDescription: {
+    type: String,
+    required: true,
+  },
+  courseDescription: {
+    type: String,
+    required: true,
+  },
   category: {
     type: String,
     required: true,
@@ -20,6 +28,18 @@ const courseSchema = Schema({
   },
   studentsEnrolled: {
     type: Number,
+  },
+  level: {
+    type: String,
+    required: true,
+    enum: ["Beginner", "Intermediate", "Professional"],
+  },
+  rating: {
+    type: Number,
+  },
+  price: {
+    type: Number,
+    required: true,
   },
 });
 

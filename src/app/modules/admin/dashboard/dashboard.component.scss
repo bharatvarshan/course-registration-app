@@ -1,0 +1,132 @@
+h1,h2,h3,h4,h5,h6,p ,button,input,hr,table,tr,th,td{
+    color: white;
+    font-family: Poppins;
+  
+  }
+
+  a{
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  
+
+  .dashboard{
+    background-color: #181818;
+    padding: 32px;
+    min-height: 100%;
+    
+}
+
+.dashboard__categories{
+    display: flex;
+
+    white-space: nowrap;
+}
+
+
+.dashboard__category{
+    background-color: #222222;
+    margin: 16px;
+    margin-left: 0;
+    padding: 16px;
+    border-radius: 10px;
+    width: 20%;
+    display: flex;
+}
+
+.dashboard__categoryLeft{
+    flex: 1;
+}
+
+.dashboard__categoryRight {
+    text-align: end;
+    flex: 1;
+}
+
+.dashboard__categoryTitle{
+    font-weight: thin;
+    font-size: 24px;
+    color: orange;
+}
+
+.dashboard__categoryImage{
+    width: 50%;
+    
+    }
+
+    .dashboard__categoryPath{
+        color: rgb(254, 0, 203);
+    }
+    
+
+
+.dashboard__dataTitle{
+    margin: 10px 20px;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    border-radius: 999px;
+    background-color: inherit;
+    border: none;
+}
+
+.dashboard__dataTitles{
+    background-color: #222222;
+    display: flex;
+    padding: 10px 50%;
+    padding: 0;
+    border-radius: 999px;
+    justify-content: space-around;
+}
+
+.active{
+    background-color: orange;
+}
+
+.dashboard__userData{
+    margin: 10px;
+
+}
+
+table{
+    width: 100%;
+    text-align: center;
+}
+table,
+th,
+td {
+
+  border: 1px solid #666;
+}
+
+table th,
+table td {
+  padding: 10px;
+  /* Apply cell padding */
+}
+
+.editButton:hover{
+    background-color: inherit;
+    border: 1px solid #FFA900;
+}
+
+.editButton{
+    background-color: #FFA900;
+    border: 1px solid #FFA900;
+    padding: 4px 16px; 
+}
+
+.deleteButton:hover{
+    background-color: inherit;
+    border: 1px solid red;
+}
+
+.deleteButton{
+    background-color: red;
+    border: 1px solid red;
+    padding: 4px 16px; 
+
+}
+

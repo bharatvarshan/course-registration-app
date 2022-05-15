@@ -1,4 +1,4 @@
-h1,h2,h3,h4,h5,h6,p {
+h1,h2,h3,h4,h5,h6,p ,a{
   color: white;
   font-family: Poppins;
 
@@ -99,4 +99,15 @@ a{
 .navbar__button:hover{
   color: #353535;
   background-color: white;
+}
+
+.navbar__right{
+  display: flex;
+}
+
+
+
+.navbar__right > a{
+  margin: 15px 10px;
+  font-size: 18px;
 }

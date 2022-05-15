@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="enrollments">
+  <h1 class="enrollments__title">
+    My Enrollments
+  </h1>
+  <div class="enrollments__courseEmptyContent" *ngIf="userEnrollments.length == 0">
+    <h1>Hey! You've haven't enrolled any course with us!</h1>
+    <a [routerLink]="['/courses/browse' ]"> <button class="enrollments__browseButton">Explore Now! <i
+          class="fa fa-arrow-right"></i></button></a>
+  </div>
+
+
+  <div class="enrollments__courseContent" *ngFor="let enrollment of userEnrollments">
+    <div class="enrollments__leftCourseContent">
+      <h1 class="enrollments__courseTitle">
+        {{enrollment.courseName}}
+        Title
+      </h1>
+      <h3 class="enrollments__courseAuthor">
+        by {{enrollment.instructorName}}
+      </h3>
+      <div class="enrollments__courseInfo">
+        <p class="enrollments__courseSeller courseInfo">{{enrollment.category}} </p>
+
+        <p class="enrollments__courseDuration courseInfo">{{enrollment.courseDuration}} <i class="fa fa-clock-o"></i>
+        </p>
+        <p class="enrollments__courseLevel courseInfo">{{enrollment.level}} <i class="fa fa-bar-chart-o"></i></p>
+        <p class="enrollments__courseRating courseInfo">{{enrollment.rating ||5}} <i class="fa fa-star"></i>
+        </p>
+
+      </div>
+    </div>
+    <div class="enrollments__rightCourseContent">
+      <h3>You paid : ₹ {{enrollment.price}}
+      </h3>
+    </div>
+
+  </div>
+</div>

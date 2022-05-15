@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<div class="courseDetails">
+  <nav class="courseDetails__nav">Home > Courses > {{course.courseName}}</nav>
+  <div class="courseDetails__content">
+    <div class="courseDetails__leftContent">
+      <h1 class="courseDetails__title">{{course.courseName}}</h1>
+      <div class="courseDetails__ratingAndAuthor">
+        <div *ngFor="let _ of [].constructor(5)">
+          <p><i class="fa fa-star"></i></p>
+        </div>
+        <p>by {{course.instructorName}}</p>
+      </div>
+      <div class="courseDetails__description">
+        <h3>
+          {{course.courseShortDescription}}
+        </h3>
+        <h2 style="font-weight:1000;">What you'll learn</h2>
+        <h3>{{course.courseDescription}}</h3>
+      </div>
+
+
+    </div>
+    <div class="courseDetails__rightContent">
+      <div class="courseDetails__priceContent">
+        <h1 class="courseDetails__price">
+          ₹ {{course.price}}
+        </h1>
+        <form *ngIf="!isEnrolled" #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)">
+          <button type="submit" id="button" class="courseDetails__enrollButton">Enroll Now</button>
+        </form>
+        <div *ngIf="isEnrolled">
+          <p style="color: #ec008c; margin: 0;">You've already enrolled with this course!</p>
+          <button (click)="navigateToEnrollments()" id="button" class="courseDetails__enrollButton">Go to my enrollments
+            <i class="fa fa-arrow-right"></i></button>
+        </div>
+        <div class="courseDetails__info">
+          <h2 class="courseDetails__infoTitle">Course info</h2>
+
+          <div class="courseDetails__infoContents">
+            <div class="courseDetails__infoContent">
+              <p>Category</p>
+              <div class="courseDetails__infoContentRight">
+                <p class="courseDetails__infoContentCategory">{{course.category}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="courseDetails__infoContent">
+              <p>Rating</p>
+              <div class="courseDetails__infoContentRight">
+                <p *ngFor="let _ of [].constructor(5)"><i class="fa fa-star"></i></p>
+              </div>
+            </div>
+            <hr>
+            <div class="courseDetails__infoContent">
+              <p>Level</p>
+              <div class="courseDetails__infoContentRight">
+                <p>{{course.level}} <i class="fa fa-bar-chart-o"></i></p>
+              </div>
+            </div>
+            <hr>
+            <div class="courseDetails__infoContent">
+              <p>Duration</p>
+              <div class="courseDetails__infoContentRight">
+                <p>{{course.courseDuration}} <i class="fa fa-clock-o"></i></p>
+              </div>
+            </div>
+            <hr>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
