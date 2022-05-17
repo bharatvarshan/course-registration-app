@@ -1,0 +1,69 @@
+h1,h2,h3,h4,h5,h6,p ,button,input,hr,table,tr,th,td{
+    color: white;
+    font-family: Poppins;
+  
+  }
+
+  a{
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  
+
+  .addCourse{
+    background-color: #181818;
+    padding: 32px;
+    min-height: 100%;
+padding-left: 30%;
+padding-right: 30%; 
+font-family: Poppins;
+
+}
+
+.addCourse >h1{
+    text-align: center;
+}
+
+
+.register__content > form{
+    margin: 10% 20%;
+}
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup > label{
+    float: left;
+    text-align: start;
+    font-size: 16px;
+    margin-bottom: 8px;
+    margin-top: 20px;
+    color: white;
+}
+
+.inputGroup > input,textarea{
+    border: 1px solid white;
+    background-color: inherit;
+    padding: 10px 10px 10px 14px;
+    font-size: 16px;
+    color: white;
+}
+
+.custom__button{
+  background-color: #0078b8;
+  border: 1px #0078b8 solid;
+  color: white;
+  border-radius: 2px;
+  padding: 10px 16px;
+  margin: 20px auto;
+  font-size: 16px;
+  width: 100%;
+}   
+
+.custom__button:hover {
+    background-color: #006093;
+}

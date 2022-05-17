@@ -15,6 +15,10 @@ router.use(
   // passport.authenticate("jwt", { session: false }),
   userRouter
 );
-router.use("/admin", adminRouter);
+router.use(
+  "/admin",
+  // passport.authenticate("jwt", { session: false }),
+  adminRouter
+);
 
 module.exports = router;

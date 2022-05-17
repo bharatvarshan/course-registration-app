@@ -10,6 +10,7 @@ import { UserService } from './services/user.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EnrollmentsComponent } from './components/enrollments/enrollments.component';
 import { SharedModule } from '../shared/shared.module';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     RegisterComponent,
     ProfileComponent,
     EnrollmentsComponent,
+    EditProfileComponent,
   ],
   imports: [
     CommonModule,

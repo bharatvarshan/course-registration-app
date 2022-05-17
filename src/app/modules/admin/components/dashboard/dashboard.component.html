@@ -6,7 +6,7 @@
   <div class="dashboard__categories">
     <div class="dashboard__category">
       <div class="dashboard__categoryLeft">
-        <p class="dashboard__categoryPath">USERS</p>
+        <p class="dashboard__categoryPath">STUDENTS</p>
         <p>No of Users</p>
 
         <h3 class="dashboard__categoryTitle">
@@ -17,7 +17,25 @@
       </div>
 
       <div class="dashboard__categoryRight">
-        <p><i class="fa fa-users fa-2x"></i></p>
+        <p><i class="fa fa-graduation-cap fa-2x"></i></p>
+
+      </div>
+
+    </div>
+    <div class="dashboard__category">
+      <div class="dashboard__categoryLeft">
+        <p class="dashboard__categoryPath">INSTRUCTORS</p>
+        <p>No of Instructors</p>
+
+        <h3 class="dashboard__categoryTitle">
+          {{instructorsCount}}
+        </h3>
+        <!-- <a class="dashboard__categoryLink" href="category Detail">Take a look
+            </a> -->
+      </div>
+
+      <div class="dashboard__categoryRight">
+        <p><i class="fa fa-user fa-2x"></i></p>
 
       </div>
 
@@ -40,14 +58,20 @@
       </div>
 
     </div>
+
   </div>
+  <h1>Detailed stats</h1>
 
   <div class="dashboard__datas">
     <div class="dashboard__dataTitles">
-      <button class="dashboard__dataTitle" onclick="toggleElement()">User</button>
-      <button class="dashboard__dataTitle" onclick="toggleElement()">Courses</button>
+      <button class="dashboard__dataTitle"
+        [ngStyle]="{'background-color': activeElement == 'User' ? 'orange' : 'inherit'}" #user
+        (click)="toggleElement(user.innerHTML)">User</button>
+      <button class="dashboard__dataTitle" #course
+        [ngStyle]="{'background-color': activeElement == 'Course' ? 'orange' : 'inherit'}"
+        (click)="toggleElement(course.innerHTML)">Courses</button>
     </div>
-    <div class="dashboard__userData" *ngIf="activeElement == 'users'">
+    <div class="dashboard__userData" *ngIf="activeElement == 'User'">
       <table>
         <thead>
           <tr>
@@ -55,9 +79,9 @@
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
-            <th>Courses</th>
-            <th>Edit</th>
-            <th>Delete</th>
+
+            <!-- <th>Edit</th> -->
+            <th>Delete User</th>
 
           </tr>
         </thead>
@@ -68,18 +92,24 @@
             <td>{{user.email}}</td>
 
             <td>{{user.role}}</td>
-            <td *ngIf="user.courses == ''">No Courses Enrolled</td>
+            <!-- <td *ngIf="user.courses == ''">No Courses Enrolled</td> -->
 
-            <td *ngIf="user.courses != ''">{{user.courses}}</td>
-            <td><button class=" editButton">Edit</button></td>
-            <td><button class="deleteButton">Delete</button></td>
+
+            <!-- <td><button class=" editButton">Edit</button></td> -->
+            <td><button (click)="removeUser(user._id)" class="deleteButton">Delete</button></td>
 
           </tr>
 
         </tbody>
       </table>
     </div>
-    <div class="dashboard__userData" *ngIf="activeElement == 'courses'">
+
+    <!-- <div class="dashboard__userData" *ngIf="activeElement == 'courses'"> -->
+    <div class="dashboard__userData" *ngIf="activeElement == 'Course'">
+      <a href="/admin/add-course"><button class="dashboard__addCourseButton">Add New Course <i class="fa fa-plus"></i>
+        </button></a>
+
+
       <table>
         <thead>
           <tr>
@@ -89,9 +119,9 @@
             <th>Course Duration</th>
             <th>Level</th>
             <th>Category</th>
-            <th>Edit</th>
+            <th>Edit Course</th>
 
-            <th>Delete</th>
+            <th>Delete Course</th>
 
           </tr>
         </thead>
@@ -109,8 +139,8 @@
             <!-- <td *ngIf="user.courses == ''">No Courses Enrolled</td>
 
             <td *ngIf="user.courses != ''">{{user.courses}}</td> -->
-            <td><button class=" editButton">Edit</button></td>
-            <td><button class="deleteButton">Delete</button></td>
+            <td><a [routerLink]="['/admin/edit-course', course._id ]"><button class=" editButton">Edit</button></a></td>
+            <td><button (click)="removeCourse(course._id)" class="deleteButton">Delete</button></td>
 
           </tr>
 

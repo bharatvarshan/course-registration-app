@@ -14,10 +14,15 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     private notificationService: NotificationService
   ) {}
-
-  ngOnInit(): void {}
+  userId!: string;
+  ngOnInit(): void {
+    this.userId = localStorage.getItem('User_ID') || '{}';
+  }
 
   logout() {
+    localStorage.removeItem('Role');
+    localStorage.removeItem('User_ID');
+
     localStorage.clear();
     this.notificationService.notifier.notify(
       'success',

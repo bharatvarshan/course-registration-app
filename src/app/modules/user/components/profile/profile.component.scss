@@ -1,0 +1,70 @@
+h1,h2,h3,h4,h5,h6,p ,button,input,hr{
+    color: white;
+    font-family: Poppins;
+  
+  }
+
+  a{
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+  }
+
+.profile{
+    background-color: #181818;
+    min-height: 90vh;
+    padding-top: 20px;
+    justify-content: space-around;
+    display: flex;
+}
+
+.profile__tile{
+    // margin: 10%;
+    // margin: 20px;
+    background-color: #353535;
+    border-radius: 10px ;
+    height: 50%;
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+}
+
+.profile__icon{
+    background-color: #787878;
+    border: none;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 999px;
+    height: 80px;
+    width: 80px;
+  color: white;
+  }
+
+
+  .profile__detail{
+      display: flex;
+      justify-content: space-between;
+      margin: 4px 16px;
+  }
+
+  .profile__editButton{
+    background-color: #FFA900;
+      border: 1px solid #FFA900;
+      padding: 10px;
+  }
+
+  .profile__editButton:hover{
+    background-color: inherit;
+
+}
+
+.profile__deleteButton{
+    background-color: red;
+      border: 1px solid red;
+      padding: 10px;
+  }
+
+  .profile__deleteButton:hover{
+    background-color: inherit;
+
+}

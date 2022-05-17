@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5,h6,p ,button,input,hr,table,tr,th,td{
     margin-left: 0;
     padding: 16px;
     border-radius: 10px;
-    width: 20%;
+    width: 33%;
     display: flex;
 }
 
@@ -63,17 +63,18 @@ h1,h2,h3,h4,h5,h6,p ,button,input,hr,table,tr,th,td{
 
 
 .dashboard__dataTitle{
-    margin: 10px 20px;
+    margin: 4px;
     width: 100%;
     padding: 8px;
     text-align: center;
-    border-radius: 999px;
+    border-radius: 999px ;
     background-color: inherit;
     border: none;
+    transition: all 0.5s ease-out ;
 }
 
 .dashboard__dataTitles{
-    background-color: #222222;
+    background-color: #333333;
     display: flex;
     padding: 10px 50%;
     padding: 0;
@@ -81,8 +82,23 @@ h1,h2,h3,h4,h5,h6,p ,button,input,hr,table,tr,th,td{
     justify-content: space-around;
 }
 
+
+
+
 .active{
-    background-color: orange;
+    background-color: #f05a28;
+}
+
+.dashboard__addCourseButton{
+    background-color: inherit;
+    border: 1px solid white;
+    padding: 10px;
+    margin: 10px auto 10px 85vw ;
+}
+
+.dashboard__addCourseButton:hover{
+    background-color: white;
+    color: #222222;
 }
 
 .dashboard__userData{

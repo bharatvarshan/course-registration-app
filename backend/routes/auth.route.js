@@ -53,12 +53,10 @@ authRouter.post("/signup", (req, res) => {
   student
     .save()
     .then((success) => {
-      res
-        .status(200)
-        .json({ message: "Student Registered Successfully", user: req.user });
+      res.status(200).json({ message: "User Registered Successfully" });
     })
     .catch((err) => {
-      res.status(400).send("Something Went Wrong");
+      res.status(400).json({ message: "User Already Exist" });
     });
 });
 

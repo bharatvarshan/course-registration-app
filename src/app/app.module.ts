@@ -30,7 +30,7 @@ import { NotifierModule } from 'angular-notifier';
            * Defines the horizontal position on the screen
            * @type {'left' | 'middle' | 'right'}
            */
-          position: 'left',
+          position: 'right',
 
           /**
            * Defines the horizontal distance to the screen edge (in px)
@@ -44,13 +44,13 @@ import { NotifierModule } from 'angular-notifier';
            * Defines the vertical position on the screen
            * @type {'top' | 'bottom'}
            */
-          position: 'bottom',
+          position: 'top',
 
           /**
            * Defines the vertical distance to the screen edge (in px)
            * @type {number}
            */
-          distance: 12,
+          distance: 80,
         },
       },
     }),

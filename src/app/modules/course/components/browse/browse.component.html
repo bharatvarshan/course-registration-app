@@ -2,7 +2,9 @@
   <app-navbar></app-navbar>
   <h1>Popular topics to learn now </h1>
 
-
+  <div *ngFor="let category of categoryList">
+    <h1>{{category}}</h1>
+  </div>
   <div class="browse__categories">
 
     <div class="browse__category">
@@ -22,7 +24,7 @@
       </div>
 
     </div>
-    <div class="browse__category">
+    <!-- <div class="browse__category">
       <div class="browse__categoryLeft">
         <p class="browse__categoryPath">PATH</p>
         <h3 class="browse__categoryTitle">
@@ -57,8 +59,6 @@
       </div>
 
     </div>
-
-
     <div class="browse__category">
       <div class="browse__categoryLeft">
         <p class="browse__categoryPath">PATH</p>
@@ -75,14 +75,15 @@
 
       </div>
 
-    </div>
+    </div> -->
 
   </div>
   <h1>Search </h1>
 
   <div class="browse__search">
     <div class="browse__searchBarDiv">
-      <input class="browse__searchBar" placeholder="Search" type="text">
+      <input class="browse__searchBar" ngDefaultControl placeholder="Start typing to search!" type="text"
+        [(ngModel)]="searchText">
     </div>
     <button class="browse__sortButton">Sort by</button>
   </div>
@@ -94,32 +95,18 @@
           <i class="fa fa-arrow-up"></i>
         </div>
         <hr>
-        <div class="browse__filterContent">
-          <input type="checkbox" name="20 hours" id="20hours">
-          <label for="20hours">Above 20 Hours</label>
-        </div>
-        <div class="browse__filterContent">
-          <input type="checkbox" name="20 hours" id="20hours">
-          <label for="20hours">Above 20 Hours</label>
-        </div>
-        <div class="browse__filterContent">
-          <input type="checkbox" name="20 hours" id="20hours">
-          <label for="20hours">Above 20 Hours</label>
-        </div>
-        <div class="browse__filterContent">
-          <input type="checkbox" name="20 hours" id="20hours">
-          <label for="20hours">Above 20 Hours</label>
-        </div>
+
+
       </div>
       <div class="browse__filter">
         <div class="browse__filterHeader">
-          <h3>Rating</h3>
+          <h3>category</h3>
           <i class="fa fa-arrow-up"></i>
         </div>
         <hr>
         <div class="browse__filterContent">
-          <input type="checkbox" name="20 hours" id="20hours">
-          <label for="20hours">Above 30 Hours</label>
+          <input type="checkbox" name="appdev" id="appdev" #appDevelopment>
+          <label for="20hours">App Development</label>
         </div>
         <div class="browse__filterContent">
           <input type="checkbox" name="20 hours" id="20hours">
@@ -138,7 +125,8 @@
     <div class="browse__rightContent">
 
 
-      <div class="browse__courseContent" *ngFor="let course of courses">
+      <div class="browse__courseContent" ngDefaultControl *ngFor="let course of courses | filter : searchText"
+        [(ngModel)]="course.selected">
         <div class="browse__leftCourseContent">
           <h1 class="browse__courseTitle">
             {{course.courseName}}

@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/modules/shared/models/user.model';
 import { NotificationService } from 'src/app/modules/shared/services/notification.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.scss'],
 })
-export class ProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,
     private notificationService: NotificationService
   ) {}
-  user!: User;
   userId!: string;
+  user!: User;
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.userId = params['id'];
@@ -26,21 +27,23 @@ export class ProfileComponent implements OnInit {
     this.userService.getUser(this.userId).subscribe({
       next: (response: any) => {
         this.user = response;
-        console.log(response);
+        // console.log(response);
       },
     });
   }
 
-  deleteUser() {
-    this.userService.deleteUser(this.userId).subscribe({
-      next: (response: any) => {
+  onSubmit(form: NgForm) {
+    this.userService.editUser(form.value, this.userId).subscribe(
+      (response) => {
+        console.log(response);
         this.notificationService.notifier.notify(
           'success',
-          'Sorry to see you leave,Your Account Deleted Successfully'
+          'Course Updated Successfully'
         );
-        localStorage.clear();
-        this.router.navigate(['/users/login']);
+
+        this.router.navigate([`/users/profile/${this.userId}`]);
       },
-    });
+      (err) => console.log(err)
+    );
   }
 }

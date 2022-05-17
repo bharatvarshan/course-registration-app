@@ -4,6 +4,7 @@ const courseSchema = Schema({
   courseName: {
     type: String,
     required: true,
+    unique: true,
   },
   instructorName: {
     type: String,
@@ -24,7 +25,6 @@ const courseSchema = Schema({
   category: {
     type: String,
     required: true,
-    enum: ["Web Development", "App Development", "Cloud", "Cyber Security"],
   },
   studentsEnrolled: {
     type: Number,

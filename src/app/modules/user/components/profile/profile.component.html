@@ -1,1 +1,22 @@
-<p>profile works!</p>
+<app-navbar></app-navbar>
+
+<div class="profile">
+  <div class="profile__tile">
+    <button class="profile__icon"><i class="fa fa-user fa-3x"></i></button>
+    <h1>{{user.name | titlecase}}</h1>
+    <div class="profile__detail">
+      <h3>Email</h3>
+      <h3>{{user.email}}</h3>
+    </div>
+
+    <div class="profile__detail">
+      <h3>Role</h3>
+      <h3>{{user.role}}</h3>
+    </div>
+    <div class="profile__detail">
+      <a [routerLink]="['/users/edit-profile', userId ]"><button class="profile__editButton">Edit my
+          profile</button></a>
+      <button (click)="deleteUser()" class="profile__deleteButton">Delete my Account</button>
+    </div>
+  </div>
+</div>

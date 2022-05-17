@@ -21,7 +21,7 @@ adminRouter.get("/get-student/:id", (req, res) => {
   });
 });
 
-adminRouter.get("/update-student/:id", (req, res) => {
+adminRouter.post("/update-student/:id", (req, res) => {
   studentModel.findByIdAndUpdate(req.params.id, req.body, (err, student) => {
     if (!student) {
       return next(new Error("Unable to find Student with requested ID"));
@@ -86,7 +86,7 @@ adminRouter.get("/get-courseByName/:name", (req, res) => {
   });
 });
 
-adminRouter.get("/update-course/:id", (req, res) => {
+adminRouter.post("/update-course/:id", (req, res) => {
   courseModel.findByIdAndUpdate(req.params.id, req.body, (err, course) => {
     if (!course) {
       return next(new Error("Unable to find course with requested ID"));
@@ -115,4 +115,17 @@ adminRouter.get("/delete-course/:id", (req, res) => {
   });
 });
 
+adminRouter.get("/get-categories", (req, res, next) => {
+  courseModel.find({}, function (err, categories) {
+    var categoryMap = {};
+    var categoryList = [];
+
+    categories.forEach(function (course) {
+      categoryMap[course.category] = categoryList.push(course);
+      // categoryList.push(course.category);
+    });
+    res.json(categoryMap);
+    // res.send([...new Set(categoryList)]);
+  });
+});
 module.exports = adminRouter;

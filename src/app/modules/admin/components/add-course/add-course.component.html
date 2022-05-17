@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+
+<div class="addCourse">
+  <h1>Add New Course</h1>
+  <form #addCourseForm="ngForm" (ngSubmit)="onSubmit(addCourseForm)" ngNativeValidate>
+    <div class="inputGroup">
+      <label for="courseName">Course Name</label>
+      <input type="text" id="courseName" name="courseName" placeholder="Enter Course Name" minlength="5"
+        [(ngModel)]="model.courseName" required>
+    </div>
+    <div class="inputGroup">
+      <label for="instructorName">Instructor Name</label>
+      <input type="text" id="instructorName" name="instructorName" placeholder="Enter Instructor Name"
+        [(ngModel)]="model.instructorName" minlength="3" required>
+    </div>
+    <div class="inputGroup">
+      <label for="courseDuration">Course Duration</label>
+      <input type="text" id="courseDuration" name="courseDuration" placeholder="Enter Course Duration"
+        [(ngModel)]="model.courseDuration" minlength="6" required>
+    </div>
+    <div class="inputGroup">
+      <label for="courseShortDescription">Course Short Description</label>
+      <textarea type="text" id="courseShortDescription" name="courseShortDescription"
+        placeholder="Enter Course Short Description" minlength="20" [(ngModel)]="model.courseShortDescription"
+        required></textarea>
+    </div>
+    <div class="inputGroup">
+      <label for="courseDescription">Course Description</label>
+      <textarea type="text" id="courseDescription" name="courseDescription"
+        placeholder="Enter Course Detailed Description" minlength="30" [(ngModel)]="model.courseDescription"
+        required></textarea>
+    </div>
+    <div class="inputGroup">
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" placeholder="Enter Category" [(ngModel)]="model.category"
+        required>
+    </div>
+    <div class="inputGroup">
+      <label for="level">Level</label>
+      <input type="text" id="level" name="level" placeholder="Enter Level" minlength="6" [(ngModel)]="model.level"
+        required>
+    </div>
+    <div class="inputGroup">
+      <label for="price">Price</label>
+      <input type="number" id="price" name="price" placeholder="Enter Price" minlength="6" [(ngModel)]="model.price"
+        required>
+    </div>
+    <input class="custom__button" type="submit" value="Add Course">
+  </form>
+</div>

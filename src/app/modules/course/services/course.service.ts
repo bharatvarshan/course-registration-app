@@ -31,4 +31,8 @@ export class CourseService {
       `${this.userurl}/${userId}/enroll-course/${courseId}`
     );
   }
+
+  getCategories() {
+    return this.httpClient.get(`${this.url}/get-categories`);
+  }
 }

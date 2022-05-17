@@ -17,6 +17,19 @@
         <input type="password" id="password" name="password" [(ngModel)]="model.password"
           placeholder="Enter your password" minlength="3" required>
       </div>
+      <!-- <div class="inputGroup ">
+        <div class="switchGroup">
+          <h3>Register as Instructor</h3>
+
+          <label class="switch">
+            <input type="checkbox" (change)="checkCheckBoxvalue($event)" name="role" [(ngModel)]="model.role"
+              (click)="logValue(model.role)">
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+      </div> -->
+
       <input class="custom__button" type="submit" value="Register">
     </form>
 

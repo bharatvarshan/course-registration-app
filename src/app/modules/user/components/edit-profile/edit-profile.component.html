@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+
+
+<div class="addCourse">
+  <h1>Edit Profile</h1>
+  <form #editProfileForm="ngForm" (ngSubmit)="onSubmit(editProfileForm)" ngNativeValidate>
+    <div class="inputGroup">
+      <label for="courseName">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter Name" [(ngModel)]="user.name" minlength="3" required>
+    </div>
+    <div class="inputGroup">
+      <label for="instructorName">email</label>
+      <input type="text" id="instructorName" name="instructorName" placeholder="Enter Email" [(ngModel)]="user.email"
+        minlength="3" required>
+    </div>
+
+
+    <input class="custom__button" type="submit" value="Update">
+  </form>
+</div>

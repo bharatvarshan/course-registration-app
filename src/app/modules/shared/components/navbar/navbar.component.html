@@ -1,30 +1,18 @@
 <div class="navbar">
   <div class="navbar__left">
     <div class="navbar__logo">
+      <img (click)="['/']" src="assets/ps-icon.png" alt="">
       <a href="/">
         <h1>Pro Academy</h1>
       </a>
     </div>
-    <div class="navbar__categories">
-      <a href="/courses/browse">
-        <button class="dropbtn">Categories &nbsp;
-          <i class="fa fa-caret-down"></i>
-        </button>
-      </a>
 
-      <div class="dropdown-content">
-        <a href="#">Web Development</a>
-        <a href="#">Android Development</a>
-        <a href="#">Machine Learning</a>
-      </div>
 
-    </div>
-
-    <div class="navbar__searchBar">
+    <!-- <div class="navbar__searchBar">
       <i class="fa fa-search"></i>
 
       <input type="text" class="navbar__input" placeholder="Search for a course to start learning!" name="" id="">
-    </div>
+    </div> -->
 
 
   </div>
@@ -35,12 +23,31 @@
 
   </div>
 
-  <div class="navbar__right" *ngIf="userService.isLoggedIn==='yes'">
-
-    <a href="/users/my-enrollments">My Enrollments</a>
+  <!-- users -->
+  <div class="navbar__right" *ngIf="userService.isLoggedIn==='yes' && !userService.isAdmin">
+    <a class="navbar__links" href="/courses/browse">
+      Browse Categories
+    </a>
+    <a class="navbar__links" href="/users/my-enrollments">My Enrollments</a>
     <button (click)="logout()" class="navbar__button">Logout</button>
-
-
-
+    <i class="fa fa-search"></i>
+    <a [routerLink]="['/users/profile', userId ]"><button class="navbar__profileButton"><i
+          class="fa fa-user"></i></button>
+    </a>
   </div>
+
+  <!-- admin -->
+  <div class="navbar__right" *ngIf="userService.isAdmin && userService.isLoggedIn==='yes'">
+    <a class="navbar__links" href="/courses/browse">
+      Browse Categories
+    </a>
+    <a class="navbar__links" href="/admin/dashboard">Dashboard</a>
+    <button (click)="logout()" class="navbar__button">Logout</button>
+    <a [routerLink]="['/users/profile', userId ]"><button class="navbar__profileButton"><i
+          class="fa fa-user"></i></button>
+    </a>
+  </div>
+
+
+
 </div>
