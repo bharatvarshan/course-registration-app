@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/modules/shared/services/auth.service';
 import { NotificationService } from 'src/app/modules/shared/services/notification.service';
 import { Login } from '../../../shared/models/login.model';
 import { UserService } from '../../services/user.service';
@@ -13,6 +14,8 @@ import { UserService } from '../../services/user.service';
 export class LoginComponent implements OnInit {
   constructor(
     private userService: UserService,
+    private authService: AuthService,
+
     private router: Router,
     private notificationService: NotificationService
   ) {}
@@ -27,7 +30,7 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log('Clicking');
 
-    this.userService.loginUser(form.value).subscribe(
+    this.authService.loginUser(form.value).subscribe(
       (response) => {
         console.log(response);
         this.userId = JSON.parse(JSON.stringify(response)).user._id;

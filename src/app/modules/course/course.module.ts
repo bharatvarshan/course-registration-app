@@ -10,7 +10,12 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { CategoryFilterPipe } from './pipes/category-filter.pipe';
 
 @NgModule({
-  declarations: [BrowseComponent, CourseDetailComponent, FilterPipe, CategoryFilterPipe],
+  declarations: [
+    BrowseComponent,
+    CourseDetailComponent,
+    FilterPipe,
+    CategoryFilterPipe,
+  ],
   imports: [CommonModule, CourseRoutingModule, SharedModule, FormsModule],
 })
 export class CourseModule {}

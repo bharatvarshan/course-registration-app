@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/modules/user/services/user.service';
+import { AuthService } from '../../services/auth.service';
 import { NotificationService } from '../../services/notification.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { NotificationService } from '../../services/notification.service';
 export class NavbarComponent implements OnInit {
   constructor(
     public userService: UserService,
+    public authService: AuthService,
     private router: Router,
     private notificationService: NotificationService
   ) {}

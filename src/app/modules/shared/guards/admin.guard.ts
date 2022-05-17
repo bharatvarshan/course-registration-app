@@ -8,6 +8,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from '../../user/services/user.service';
+import { AuthService } from '../services/auth.service';
 import { NotificationService } from '../services/notification.service';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class AdminGuard implements CanActivate {
   constructor(
     private notificationService: NotificationService,
     private router: Router,
-    private userService: UserService
+    private authService: AuthService
   ) {}
 
   canActivate(
@@ -28,7 +29,7 @@ export class AdminGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.userService.isAdmin) {
+    if (this.authService.isAdmin) {
       return true;
     } else {
       // this.notificationService.notifier.notify('Failure', 'No Admin Access');
