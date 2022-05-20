@@ -8,4 +8,6 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AppComponent {
   title = 'course-registration-application';
+
+  constructor() {}
 }

@@ -27,4 +27,8 @@ export class AuthService {
   loginUser(userObject: Login) {
     return this.httpClient.post(`${this.url}/login`, userObject);
   }
+
+  callRefershToken(payload: object) {
+    return this.httpClient.post(`${this.url}/auth/refreshtoken`, payload);
+  }
 }

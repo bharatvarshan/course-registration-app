@@ -23,6 +23,18 @@ export class AdminService {
     return this.httpClient.get(`${this.url}/delete-student/${userId}`);
   }
 
+  makeAdmin(userId: string) {
+    return this.httpClient.patch(`${this.url}/update-toAdmin/${userId}`, {
+      role: 'admin',
+    });
+  }
+
+  makeStudent(userId: string) {
+    return this.httpClient.patch(`${this.url}/update-toUser/${userId}`, {
+      role: 'student',
+    });
+  }
+
   addCourse(userObject: Courses) {
     return this.httpClient.post(`${this.url}/add-course`, userObject);
   }

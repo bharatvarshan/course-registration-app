@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
   userId!: string;
   token!: string;
   role!: string;
-
+  refresh_token!: string;
+  expiry!: string;
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
@@ -33,22 +34,38 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(form.value).subscribe(
       (response) => {
         console.log(response);
+
         this.userId = JSON.parse(JSON.stringify(response)).user._id;
         this.token = JSON.parse(JSON.stringify(response)).token;
+        this.refresh_token = JSON.parse(JSON.stringify(response)).refresh_token;
         this.role = JSON.parse(JSON.stringify(response)).user.role;
+
+        // console.log(typeof this.expiry);
 
         // alert('Registered Successfully');
         // this.userId = JSON.parse(response);
-        localStorage.setItem('Login_Status', 'yes');
-        localStorage.setItem('User_ID', this.userId);
-        localStorage.setItem('Token', this.token);
-        localStorage.setItem('Role', this.role);
+        Promise.resolve().then(() => {
+          localStorage.setItem('Login_Status', 'yes');
+          localStorage.setItem('User_ID', this.userId);
+          localStorage.setItem('Token', this.token);
+          localStorage.setItem('Role', this.role);
+          localStorage.setItem('Refresh_Token', this.refresh_token);
+        });
+        // localStorage.setItem('Login_Status', 'yes');
+        // localStorage.setItem('User_ID', this.userId);
+        // localStorage.setItem('Token', this.token);
+        // localStorage.setItem('Role', this.role);
 
         this.notificationService.notifier.notify('success', 'Login Success');
 
-        this.router.navigate(['/']);
+        this.router.navigate(['/']).then(() => {
+          window.location.reload();
+        });
       },
-      (err) => console.log(err)
+      (err) => {
+        this.notificationService.notifier.notify('error', err.error.message);
+        console.log(err);
+      }
     );
     // console.log(form.value);
   }

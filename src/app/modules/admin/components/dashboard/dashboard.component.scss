@@ -123,16 +123,31 @@ table td {
   /* Apply cell padding */
 }
 
-.editButton:hover{
+.editAdminButton:hover{
     background-color: inherit;
     border: 1px solid #FFA900;
 }
 
-.editButton{
+.editAdminButton{
     background-color: #FFA900;
     border: 1px solid #FFA900;
     padding: 4px 16px; 
 }
+
+.editStudentButton:hover{
+    background-color: #FFA900;
+
+    border: 1px solid #FFA900;
+}
+
+.editStudentButton{
+    background-color: inherit;
+
+    border: 1px solid #FFA900;
+    padding: 4px 16px; 
+}
+
+
 
 .deleteButton:hover{
     background-color: inherit;

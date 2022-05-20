@@ -21,23 +21,64 @@ adminRouter.get("/get-student/:id", (req, res) => {
   });
 });
 
+// adminRouter.post("/update-student/:id", (req, res) => {
+//   studentModel.findByIdAndUpdate(req.params.id, req.body, (err, student) => {
+//     if (!student) {
+//       return next(new Error("Unable to find Student with requested ID"));
+//     } else {
+//       student
+//         .update()
+//         .then((student) => {
+//           res.json({
+//             status: "User Updated Successfully",
+//           });
+//         })
+//         .catch((err) => {
+//           res.status(400).send("Update Failed");
+//         });
+//     }
+//   });
+// });
+
 adminRouter.post("/update-student/:id", (req, res) => {
   studentModel.findByIdAndUpdate(req.params.id, req.body, (err, student) => {
-    if (!student) {
-      return next(new Error("Unable to find Student with requested ID"));
+    if (err) {
+      console.log(err);
     } else {
-      student
-        .save()
-        .then((student) => {
-          res.json({
-            status: "Employee Updated Successfully",
-          });
-        })
-        .catch((err) => {
-          res.status(400).send("Update Failed");
-        });
+      res.json("User Updated Successfully");
+      console.log("User Updated Successfully");
     }
   });
+});
+
+adminRouter.patch("/update-toAdmin/:id", (req, res) => {
+  studentModel.findByIdAndUpdate(
+    req.params.id,
+    { role: "admin" },
+    (err, docs) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json("Updated to Admin");
+        console.log("Updated to Admin");
+      }
+    }
+  );
+});
+
+adminRouter.patch("/update-toUser/:id", (req, res) => {
+  studentModel.findByIdAndUpdate(
+    req.params.id,
+    { role: "student" },
+    (err, docs) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json("Updated to student");
+        console.log("Updated to student");
+      }
+    }
+  );
 });
 
 adminRouter.get("/delete-student/:id", (req, res) => {
@@ -120,11 +161,11 @@ adminRouter.get("/get-categories", (req, res, next) => {
     var categoryMap = {};
     var categoryList = [];
 
-    categories.forEach(function (course) {
-      categoryMap[course.category] = categoryList.push(course);
-      // categoryList.push(course.category);
+    categories.forEach((course) => {
+      // categoryMap[course.category] = categoryList.push(course);
+      categoryList.push(course.category);
     });
-    res.json(categoryMap);
+    res.json(categoryList.filter((v, i, a) => a.indexOf(v) === i));
     // res.send([...new Set(categoryList)]);
   });
 });

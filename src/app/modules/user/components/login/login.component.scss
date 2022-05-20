@@ -81,5 +81,13 @@ margin: 8px 20%;
 
 .login__right{
 text-align: center;
-    padding-top: 20%;
+// display: flex;
+// justify-content: center;
+padding: 12%;
+    // padding-top: 20%
+}
+
+.login__image{
+    height: 500px;
+    border-radius: 10px;
 }

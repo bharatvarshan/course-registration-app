@@ -16,7 +16,7 @@
 
 
   </div>
-  <div class="navbar__right" *ngIf="authService.isLoggedIn==='no'">
+  <div class="navbar__right" *ngIf="!isLoggedIn">
     <a href="/users/register"> <button class="navbar__button">Register</button></a>
 
     <a href="/users/login"> <button class="navbar__button">Login</button></a>
@@ -24,7 +24,7 @@
   </div>
 
   <!-- users -->
-  <div class="navbar__right" *ngIf="authService.isLoggedIn==='yes' && !authService.isAdmin">
+  <div class="navbar__right" *ngIf="isLoggedIn && !isAdmin">
     <a class="navbar__links" href="/courses/browse">
       Browse Categories
     </a>
@@ -37,7 +37,7 @@
   </div>
 
   <!-- admin -->
-  <div class="navbar__right" *ngIf="authService.isAdmin && authService.isLoggedIn==='yes'">
+  <div class="navbar__right" *ngIf="isAdmin && isLoggedIn">
     <a class="navbar__links" href="/courses/browse">
       Browse Categories
     </a>

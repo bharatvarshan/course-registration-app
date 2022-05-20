@@ -1,20 +1,20 @@
 <div class="browse">
   <app-navbar></app-navbar>
-  <h1>Popular topics to learn now </h1>
+  <h1>Popular Categories </h1>
 
-  <div *ngFor="let category of categoryList">
+  <!-- <div *ngFor="let category of categoryList">
     <h1>{{category}}</h1>
-  </div>
+  </div> -->
   <div class="browse__categories">
 
-    <div class="browse__category">
+    <div class="browse__category" *ngFor="let category of categoryList" (click)="assignCategory(category)">
       <div class="browse__categoryLeft">
         <p class="browse__categoryPath">PATH</p>
         <h3 class="browse__categoryTitle">
-          Angular
+          {{category}}
         </h3>
-        <p>No of courses : 11</p>
-        <a class="browse__categoryLink" href="category Detail">Take a look <i class="fa fa-arrow-right"></i>
+        <p>No of courses</p>
+        <a class="browse__categoryLink">Take a look <i class="fa fa-arrow-right"></i>
         </a>
       </div>
 
@@ -24,71 +24,21 @@
       </div>
 
     </div>
-    <!-- <div class="browse__category">
-      <div class="browse__categoryLeft">
-        <p class="browse__categoryPath">PATH</p>
-        <h3 class="browse__categoryTitle">
-          Angular
-        </h3>
-        <p>No of courses : 11</p>
-        <a class="browse__categoryLink" href="category Detail">Take a look <i class="fa fa-arrow-right"></i>
-        </a>
-      </div>
 
-      <div class="browse__categoryRight">
-        <img class="browse__categoryImage" src="assets/js_logo.png" alt="">
 
-      </div>
 
-    </div>
-    <div class="browse__category">
-      <div class="browse__categoryLeft">
-        <p class="browse__categoryPath">PATH</p>
-        <h3 class="browse__categoryTitle">
-          Angular
-        </h3>
-        <p>No of courses : 11</p>
-        <a class="browse__categoryLink" href="category Detail">Take a look <i class="fa fa-arrow-right"></i>
-
-        </a>
-      </div>
-
-      <div class="browse__categoryRight">
-        <img class="browse__categoryImage" src="assets/js_logo.png" alt="">
-
-      </div>
-
-    </div>
-    <div class="browse__category">
-      <div class="browse__categoryLeft">
-        <p class="browse__categoryPath">PATH</p>
-        <h3 class="browse__categoryTitle">
-          Angular
-        </h3>
-        <p>No of courses : 11</p>
-        <a class="browse__categoryLink" href="category Detail">Take a look <i class="fa fa-arrow-right"></i>
-        </a>
-      </div>
-
-      <div class="browse__categoryRight">
-        <img class="browse__categoryImage" src="assets/js_logo.png" alt="">
-
-      </div>
-
-    </div> -->
 
   </div>
   <h1>Search </h1>
-
   <div class="browse__search">
     <div class="browse__searchBarDiv">
       <input class="browse__searchBar" ngDefaultControl placeholder="Start typing to search!" type="text"
         [(ngModel)]="searchText">
     </div>
-    <button class="browse__sortButton">Sort by</button>
+    <button class="browse__sortButton" (click)="clearFilter()">Clear </button>
   </div>
   <div class="browse__content">
-    <div class="browse__leftContent">
+    <!-- <div class="browse__leftContent">
       <div class="browse__filter">
         <div class="browse__filterHeader">
           <h3>Duration</h3>
@@ -105,7 +55,7 @@
         </div>
         <hr>
         <div class="browse__filterContent">
-          <input type="checkbox" name="appdev" id="appdev" #appDevelopment>
+          <input type="checkbox" name="appdev" id="appdev">
           <label for="20hours">App Development</label>
         </div>
         <div class="browse__filterContent">
@@ -121,11 +71,14 @@
           <label for="20hours">Above 5 Hours</label>
         </div>
       </div>
-    </div>
+    </div> -->
+
     <div class="browse__rightContent">
 
+      <h3 *ngIf="searchCategory != '' && searchText != '' ">Your results</h3>
 
-      <div class="browse__courseContent" ngDefaultControl *ngFor="let course of courses | filter : searchText"
+      <div class="browse__courseContent" ngDefaultControl
+        *ngFor="let course of courses | filter : searchText | categoryFilter : searchCategory"
         [(ngModel)]="course.selected">
         <div class="browse__leftCourseContent">
           <h1 class="browse__courseTitle">

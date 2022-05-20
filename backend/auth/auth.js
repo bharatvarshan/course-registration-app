@@ -3,6 +3,7 @@ const localStrategy = require("passport-local").Strategy;
 const JWTstrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
 const UserModel = require("../models/student.model");
+const refresh = require("passport-oauth2-refresh");
 
 passport.use(
   "signup",
@@ -63,15 +64,8 @@ passport.use(
           return done(null, user);
         } else {
           return done(null, false);
-          // or you could create a new account
         }
       });
-      //   try {
-      //     return done(null, token.user);
-      //     console.log("dfsdfsdf" + token.user);
-      //   } catch (error) {
-      //     done(error);
-      //   }
     }
   )
 );

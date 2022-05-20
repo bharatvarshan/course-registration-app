@@ -81,9 +81,20 @@ margin: 8px 20%;
 }
 
 .register__right{
-text-align: center;
-    padding-top: 20%;
-}
+  text-align: center;
+  // display: flex;
+  // justify-content: center;
+  padding: 12%;
+      // padding-top: 20%
+  }
+  
+  .register__image{
+      height: 500px;
+      border-radius: 10px;
+  }
+
+
+
 
 .switchGroup{
     display: flex;

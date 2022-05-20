@@ -62,6 +62,9 @@ export class DashboardComponent implements OnInit {
         console.log(this.users);
       },
     });
+
+    let string = 'admin';
+    console.log(JSON.parse(`{"role" : "${string}"}`));
   }
 
   removeUser(id: number) {
@@ -86,6 +89,38 @@ export class DashboardComponent implements OnInit {
           'success',
           'Course Remove Successfully'
         );
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      },
+    });
+  }
+
+  makeAdmin(id: number) {
+    this.adminService.makeAdmin(String(id)).subscribe({
+      next: (response: any) => {
+        this.notificationService.notifier.notify(
+          'success',
+          'Updated Successfully'
+        );
+        // console.log(role);
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      },
+    });
+  }
+
+  makeStudent(id: number) {
+    this.adminService.makeStudent(String(id)).subscribe({
+      next: (response: any) => {
+        this.notificationService.notifier.notify(
+          'success',
+          'Updated Successfully'
+        );
+        // console.log(role);
+
         setTimeout(() => {
           window.location.reload();
         }, 1000);

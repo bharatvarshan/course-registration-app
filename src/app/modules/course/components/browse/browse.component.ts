@@ -12,18 +12,9 @@ import { FilterPipe } from '../../pipes/filter.pipe';
 export class BrowseComponent implements OnInit {
   courses: Courses[] = [];
   categoryList: string[] = [];
+
   searchText: string = '';
-  objArray = [
-    {
-      foo: 1,
-    },
-    {
-      foo: 2,
-    },
-    {
-      foo: 3,
-    },
-  ];
+  searchCategory: string = '';
 
   result = this.courses.map((a: Courses) => a.category);
   constructor(private courseService: CourseService) {}
@@ -36,25 +27,29 @@ export class BrowseComponent implements OnInit {
       },
     });
 
-    console.log(this.result);
-    console.log(this.objArray);
+    this.courseService.getCategories().subscribe({
+      next: (response: any) => {
+        this.categoryList = response;
+        // this.count = Object.values(response);
+        console.log(response);
+      },
+    });
 
-    // this.courseService.getCategories().subscribe({
-    //   next: (response: any) => {
-    //     response.forEach((element: any) => {
-    //       this.categoryList.push(element);
-    //     });
-    //     // this.categoryList = response;
-    //     console.log(this.categoryList);
-    //   },
-    // });
+    let unique = this.categoryList.filter(function (elem, index, self) {
+      return index === self.indexOf(elem);
+    });
 
-    // this.courses.forEach((course) => {
-    //   console.log('hi');
+    console.log(this.categoryList.filter((v, i, a) => a.indexOf(v) === i));
+  }
 
-    //   this.categoryList.push(course.category);
-    // });
+  assignCategory(cat: string) {
+    console.log(cat);
+    this.searchCategory = cat;
+    // console.log(this.searchCategory);
+  }
 
-    // console.log(this.categoryList);
+  clearFilter() {
+    this.searchText = '';
+    this.searchCategory = '';
   }
 }

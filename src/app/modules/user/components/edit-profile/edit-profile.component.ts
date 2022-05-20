@@ -38,7 +38,7 @@ export class EditProfileComponent implements OnInit {
         console.log(response);
         this.notificationService.notifier.notify(
           'success',
-          'Course Updated Successfully'
+          'Profile Updated Successfully'
         );
 
         this.router.navigate([`/users/profile/${this.userId}`]);

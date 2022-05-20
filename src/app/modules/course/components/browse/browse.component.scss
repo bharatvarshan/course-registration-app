@@ -33,9 +33,14 @@ h1{
     margin: 16px;
     padding: 16px;
     border-radius: 10px;
-    width: 20%;
+    // width: 20%;
     display: flex;
+    cursor: pointer;
 }
+
+.browse__category:hover{
+    box-shadow: 0 8px 10px -4px #2e2e2e;
+    ;}
 
 .browse__categoryLeft{
     flex: 1;
@@ -144,7 +149,7 @@ margin-left: 20px;
 }
 
 .browse__rightContent{
-    flex: 75%;
+    flex: 100%;
     margin: 10px;
 
 }
@@ -153,9 +158,10 @@ margin-left: 20px;
     display: flex;
     justify-content: space-between;
     margin: 10px;
-    margin-right: 10%;
+    // margin-right: 10%;
     background-color: #222222;
-    padding: 2%;
+    padding: 1%;
+    border-radius: 4px;
 }
 
 .browse__courseTitle{

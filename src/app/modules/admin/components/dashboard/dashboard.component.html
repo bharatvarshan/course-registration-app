@@ -80,7 +80,7 @@
             <th>Email</th>
             <th>Role</th>
 
-            <!-- <th>Edit</th> -->
+            <th>Make Admin</th>
             <th>Delete User</th>
 
           </tr>
@@ -96,6 +96,13 @@
 
 
             <!-- <td><button class=" editButton">Edit</button></td> -->
+            <td><button *ngIf="user.role == 'student'" (click)="makeAdmin(user._id)" class=" editAdminButton">Make
+                Admin</button>
+              <button *ngIf="user.role == 'admin'" (click)="makeStudent(user._id)" class=" editStudentButton">Make
+                Student</button>
+
+            </td>
+
             <td><button (click)="removeUser(user._id)" class="deleteButton">Delete</button></td>
 
           </tr>

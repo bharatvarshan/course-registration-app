@@ -27,17 +27,15 @@ export class RegisterComponent implements OnInit {
     this.authService.registerUser(form.value).subscribe(
       (response) => {
         console.log(form.value);
-        let message = JSON.stringify(response);
+        let message = JSON.stringify(Object.values(response)[0]);
 
         console.log(response);
         this.notificationService.notifier.notify('success', message);
 
         this.router.navigate(['/users/login']);
       },
-      (err: HttpErrorResponse) => {
-        this.notificationService.notifier.notify('error', err.error.message);
-
-        console.log(err.error.message);
+      (err) => {
+        this.notificationService.notifier.notify('error', err);
       }
     );
   }
