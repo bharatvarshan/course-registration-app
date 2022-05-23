@@ -38,10 +38,10 @@ authRouter.post("/login", async (req, res, next) => {
         }
         const body = { email: user._id };
         let token = jwt.sign({ user: body }, process.env.JWT_SECRET, {
-          expiresIn: 30,
+          expiresIn: 60,
         });
         let refreshToken = jwt.sign({ user: body }, "REFRESH_SECRET", {
-          expiresIn: "1d",
+          expiresIn: "1y",
         });
         const ref_token = new refreshTokenModel({
           refreshToken: refreshToken,

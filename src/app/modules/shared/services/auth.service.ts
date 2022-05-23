@@ -8,7 +8,7 @@ import { User } from '../../shared/models/user.model';
   providedIn: 'root',
 })
 export class AuthService {
-  url: string = 'http://localhost:3000';
+  url: string = 'http://35.154.176.94:3000';
   isLoggedIn!: string;
   isAdmin!: boolean;
   constructor(private httpClient: HttpClient) {

@@ -146,7 +146,8 @@
             <!-- <td *ngIf="user.courses == ''">No Courses Enrolled</td>
 
             <td *ngIf="user.courses != ''">{{user.courses}}</td> -->
-            <td><a [routerLink]="['/admin/edit-course', course._id ]"><button class=" editButton">Edit</button></a></td>
+            <td><a [routerLink]="['/admin/edit-course', course._id ]"><button
+                  class=" editCourseButton">Edit</button></a></td>
             <td><button (click)="removeCourse(course._id)" class="deleteButton">Delete</button></td>
 
           </tr>

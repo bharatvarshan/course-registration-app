@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
-
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './modules/shared/shared.module';

@@ -19,13 +19,32 @@ h1,h2,h3,h4,h5,h6,p ,button,input,hr{
 
 .browse__categories {
 display: flex;
-// width: 300em;
-    overflow-x: auto;
-    white-space: nowrap;
+
+
+overflow: auto;
+// overflow-x: scroll;
+scroll-snap-type: x mandatory;
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #2e2e2e;
+    height: 1px;
+    border-radius: 999px;
 }
 
 h1{
     margin: 20px auto auto 20px;
+}
+
+.browse__categories > .browse__category{
+    min-width: 20%;
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
 }
 
 .browse__category{
@@ -39,7 +58,7 @@ h1{
 }
 
 .browse__category:hover{
-    box-shadow: 0 8px 10px -4px #2e2e2e;
+    box-shadow: 8px 10px 10px -4px #2e2e2e;
     ;}
 
 .browse__categoryLeft{

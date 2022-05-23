@@ -7,8 +7,8 @@ import { User } from '../../shared/models/user.model';
   providedIn: 'root',
 })
 export class AdminService {
-  url: string = 'http://localhost:3000/admin';
-  userurl: string = 'http://localhost:3000/user';
+  url: string = 'http://35.154.176.94:3000/admin';
+  userurl: string = 'http://35.154.176.94:3000/user';
 
   constructor(private httpClient: HttpClient) {}
   getAllUsers() {

@@ -5,7 +5,7 @@ h1,h2,h3,h4,h5,h6,p ,label,input{
 }
 
 .login{
-background-color: black;    height: 100vh;
+background-color: black;    height: 100%;
     display: flex;
     font-family: Poppins;
 
@@ -90,4 +90,18 @@ padding: 12%;
 .login__image{
     height: 500px;
     border-radius: 10px;
+}
+
+
+@media only screen and ( min-width:425px)  { 
+    
+.login__content{
+ 
+    width: 100vw;
+    background-color:#0D0F13;
+    text-align: center;
+    padding-top:  20vh;
+
+}
+
 }
