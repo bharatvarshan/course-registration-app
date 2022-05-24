@@ -4,18 +4,33 @@
     <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" ngNativeValidate>
       <div class="inputGroup">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" minlength="3" required
-          [(ngModel)]="model.name">
+        <input type="text" id="name" name="name" placeholder="Enter your name" minlength="3" required ngModel
+          #namei="ngModel">
+        <p *ngIf="namei.dirty && namei.invalid" id="error" class="efname">Name should be of minimum 3 Letters</p>
+
       </div>
+
       <div class="inputGroup">
         <label for="email">Email</label>
-        <input type="text" id="email" name="email" placeholder="Enter your email" [(ngModel)]="model.email"
+        <input type="email" id="email" name="email" placeholder="Enter your email" ngModel #emaili="ngModel"
           pattern="[^@]+@[^@]+" required>
+        <p *ngIf="emaili.dirty && emaili.invalid" id="error" class="efname">Invalid Email Format</p>
+
       </div>
+      <!-- <div class="inputGroup">
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your 10 digit Mobile Number" ngModel
+          [(ngModel)]="model.phone" #phonei="ngModel" minlength="10" maxlength="10" required>
+        <p *ngIf="phonei.dirty && phonei.invalid" id="error" class="efname">Invalid Mobile Number</p>
+
+      </div> -->
       <div class="inputGroup">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" [(ngModel)]="model.password"
-          placeholder="Enter your password" minlength="3" required>
+        <input type="password" id="password" name="password" ngModel #passwordi="ngModel"
+          placeholder="Enter your password" minlength="6" required>
+        <p *ngIf="passwordi.dirty && passwordi.invalid" id="error" class="efname">Password should be minimum length of 6
+        </p>
+
       </div>
       <!-- <div class="inputGroup ">
         <div class="switchGroup">

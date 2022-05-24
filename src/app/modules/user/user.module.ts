@@ -12,6 +12,7 @@ import { EnrollmentsComponent } from './components/enrollments/enrollments.compo
 import { SharedModule } from '../shared/shared.module';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { TokenInterceptorService } from '../shared/interceptors/token-interceptor.service';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TokenInterceptorService } from '../shared/interceptors/token-intercepto
     ProfileComponent,
     EnrollmentsComponent,
     EditProfileComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     CommonModule,

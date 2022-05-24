@@ -8,7 +8,9 @@ import { User } from '../../shared/models/user.model';
   providedIn: 'root',
 })
 export class AuthService {
-  url: string = 'http://35.154.176.94:3000';
+  url: string = 'http://localhost:3000';
+
+  // url: string = 'http://35.154.176.94:3000';
   isLoggedIn!: string;
   isAdmin!: boolean;
   constructor(private httpClient: HttpClient) {
@@ -17,9 +19,9 @@ export class AuthService {
   }
 
   registerUser(userObject: Register) {
-    console.log('entering register service');
-    console.log(`${this.url}/signup`);
-    console.log(userObject);
+    // console.log('entering register service');
+    // console.log(`${this.url}/signup`);
+    // console.log(userObject);
 
     return this.httpClient.post(`${this.url}/signup`, userObject);
   }
@@ -30,5 +32,11 @@ export class AuthService {
 
   callRefershToken(payload: object) {
     return this.httpClient.post(`${this.url}/auth/refreshtoken`, payload);
+  }
+
+  sendOTP(phone: string) {
+    // console.log(JSON.parse(phone));
+
+    return this.httpClient.post(`${this.url}/otp/send-otp`, '9703681102');
   }
 }

@@ -8,7 +8,7 @@ import { Courses } from '../../shared/models/course.model';
 })
 export class CourseService {
   url: string = 'http://35.154.176.94:3000/admin';
-  userurl: string = 'http://35.154.176.94:3000/user';
+  userurl: string = 'http://localhost:3000/user';
   coursesDetails: Courses[] = [];
   constructor(private httpClient: HttpClient) {}
 
@@ -25,8 +25,6 @@ export class CourseService {
   }
 
   enrollCourse(userId: string, courseId: string) {
-    console.log(`${this.userurl}/${userId}/enroll-course/${courseId}`);
-
     return this.httpClient.get(
       `${this.userurl}/${userId}/enroll-course/${courseId}`
     );
@@ -34,5 +32,16 @@ export class CourseService {
 
   getCategories() {
     return this.httpClient.get(`${this.url}/get-categories`);
+  }
+
+  makePayment(body: Object) {
+    return this.httpClient.post(`${this.userurl}/payment/create-order`, body);
+  }
+
+  verifySignature(body: Object) {
+    return this.httpClient.post(
+      `${this.userurl}/payment/verifyPaymentSignature`,
+      body
+    );
   }
 }

@@ -1,5 +1,5 @@
 .home{
-    height: 100vh;
+    height: 100%;
     background-color: #181818;
     font-family: Poppins;
 }
@@ -57,3 +57,17 @@ background-color: inherit;
     width: 75%;
     margin-top: 20%;
 }
+
+
+@media  screen and (max-width: 767px ) {
+    .home{
+        height: fit-content;
+    }
+
+    .home__body{
+        flex-direction: column;
+    }
+    .home__left,.home__right{
+        width: 100%;    
+    }
+  }

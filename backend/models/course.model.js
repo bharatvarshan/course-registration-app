@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { URL } = require("url");
 
 const courseSchema = Schema({
   courseName: {

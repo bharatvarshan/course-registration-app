@@ -4,6 +4,16 @@ const userRouter = express.Router();
 const studentModel = require("../models/student.model.js");
 const courseModel = require("../models/course.model.js");
 
+const paymentController = require("../configs/payment.js");
+let razorpay = require("razorpay");
+const crypto = require("crypto");
+
+const razorpayConfig = {
+  key_id: "rzp_test_yyPJDNR7iPgM94",
+  key_secret: "Cbjzg0sJdH6NFCL5H3JmzkPf",
+};
+
+// var instance = new razorpay(razorpayConfig);
 userRouter.get("/profile", (req, res, next) => {
   res.json({
     message: "Secure profile Page",
@@ -54,6 +64,40 @@ userRouter.get("/:id/enroll-course/:courseid", (req, res, next) => {
       }
     }
   );
+});
+
+userRouter.post("/payment/create-order", async (req, res, next) => {
+  const amount = req.body.price;
+  var instance = new razorpay({
+    key_id: razorpayConfig.key_id,
+    key_secret: razorpayConfig.key_secret,
+  });
+  let order = await instance.orders.create({
+    amount: amount * 100,
+    currency: "INR",
+    receipt: "receipt#1",
+  });
+  console.log(order);
+
+  res.send(order);
+});
+userRouter.post("/payment/verifyPaymentSignature", (req, res, next) => {
+  const order_id = req.body.order_id;
+  const payment_id = req.body.payment_id;
+  const razorpay_signature = req.body.signature;
+
+  const key_secret = "Cbjzg0sJdH6NFCL5H3JmzkPf";
+
+  let hmac = crypto.createHmac("sha256", key_secret);
+
+  hmac.update(order_id + "|" + payment_id);
+
+  const generated_signature = hmac.digest("hex");
+
+  if (razorpay_signature === generated_signature) {
+    console.log("verified");
+    res.json("Verified");
+  } else return res.send("Failed");
 });
 
 module.exports = userRouter;

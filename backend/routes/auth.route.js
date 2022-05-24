@@ -6,6 +6,9 @@ const jwt = require("jsonwebtoken");
 const studentModel = require("../models/student.model.js");
 const refreshTokenModel = require("../models/refreshToken.model.js");
 const bcrypt = require("bcrypt");
+const TwoFactor = new (require("2factor"))(
+  "3975edbd-690f-11eb-8153-0200cd936042"
+);
 
 // authRouter.post(
 //   "/signup",
@@ -65,8 +68,10 @@ authRouter.post("/login", async (req, res, next) => {
 //   res.send("login");
 // });
 
-authRouter.post("/signup", (req, res) => {
+authRouter.post("/signup", async (req, res) => {
   let student = new studentModel(req.body);
+  student.password = await bcrypt.hash(student.password, 10);
+  console.log(student.password);
   student
     .save()
     .then((success) => {
@@ -118,6 +123,79 @@ authRouter.post("/auth/refreshtoken", (req, res) => {
       return res.status(500).json({ error: "Token Expired" });
     }
     return res.status(500).json({ error: "Internal Server Error!" });
+  }
+});
+
+authRouter.get("/otp/get-balance", (req, res, next) => {
+  TwoFactor.balance().then(
+    (response) => {
+      console.log(response);
+      res.send(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+});
+
+authRouter.post("/otp/send-otp", (req, res, next) => {
+  console.log(req.body);
+  TwoFactor.sendOTP("9703681102", {
+    otp: Math.floor(1000 + Math.random() * 9000),
+    template: "RECMart",
+  }).then(
+    (sessionID) => {
+      res.send(sessionID);
+      // console.log(sessionId);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+});
+
+authRouter.get("/otp/verify-otp", (req, res, next) => {
+  TwoFactor.verifyOTP(req.body.id, req.body.otp).then(
+    (response) => {
+      res.send(response);
+      console.log(response);
+    },
+    (error) => {
+      res.send(error);
+      console.log(error);
+    }
+  );
+});
+
+authRouter.post("/reset-password", async (req, res) => {
+  let inputEmail = req.body.email;
+  let inputPassword = req.body.password;
+  // let student = new studentModel(req.body);
+
+  // console.log(student);
+  let hashedPassword = await bcrypt.hash(inputPassword, 10);
+  console.log(hashedPassword);
+
+  try {
+    studentModel.findOneAndUpdate(
+      { email: inputEmail },
+      { password: hashedPassword },
+      (err, user) => {
+        // console.log(user);
+        if (!user) {
+          res.send("User Not Found");
+        } else {
+          res.json({
+            status: "Password updated Successfully",
+          });
+        }
+      }
+    );
+    // studentModel.updateOne({emailId:user.email},{$set:{password: bcrypt.hash(pwd,10)}})
+
+    // console.log(curuser.password);
+  } catch (err) {
+    return res.send(err.message);
   }
 });
 

@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
       next: (response: any) => {
         this.notificationService.notifier.notify(
           'success',
-          'Sorry to see you leave,Your Account Deleted Successfully'
+          'Sorry to see you leave,Your account has been deleted successfully'
         );
         localStorage.clear();
         this.router.navigate(['/users/login']);

@@ -9,4 +9,5 @@ export class Courses {
   level!: string;
   price!: string;
   rating!: string;
+  categoryURL!: string;
 }

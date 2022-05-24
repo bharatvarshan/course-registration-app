@@ -12,6 +12,10 @@ const studentSchema = Schema({
     required: true,
     unique: true,
   },
+  // phone: {
+  //   type: String,
+  //   required: true,
+  // },
   password: {
     type: String,
     required: true,
@@ -27,19 +31,19 @@ const studentSchema = Schema({
   },
 });
 
-studentSchema.pre("save", async function (next) {
-  const user = this;
-  const hash = await bcrypt.hash(this.password, 10);
+// studentSchema.pre("save", async function (next) {
+//   const user = this;
+//   const hash = await bcrypt.hash(this.password, 10);
 
-  this.password = hash;
-  next();
-});
+//   this.password = hash;
+//   next();
+// });
 
-studentSchema.methods.isValidPassword = async function (password) {
-  const user = this;
-  const compare = await bcrypt.compare(password, user.password);
+// studentSchema.methods.isValidPassword = async function (password) {
+//   const user = this;
+//   const compare = await bcrypt.compare(password, user.password);
 
-  return compare;
-};
+//   return compare;
+// };
 
 module.exports = model("Student", studentSchema);

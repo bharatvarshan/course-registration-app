@@ -185,6 +185,7 @@ margin-left: 20px;
 
 .browse__courseTitle{
     margin: 0;
+
 }
 
 .browse__courseAuthor{
@@ -236,3 +237,38 @@ margin-left: 20px;
     color: #222222;
     border: 1px solid white;
 }
+
+@media  screen and (max-width: 768px ) {
+    .browse__category{
+        width:100% !important;
+        margin: 16px;
+    padding: 0px;
+    }
+
+    .browse__courseContent{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        // margin-right: 10%;
+        background-color: #222222;
+        padding: 1%;
+        border-radius: 4px;
+    }
+    
+    .browse__courseTitle{
+        font-size: 14px;
+    }
+    .browse__courseAuthor{
+        font-size: 12px;
+        
+    }
+
+    .courseInfo{
+        margin-right: 4px;
+        font-size: 10px;
+    }
+
+    .browse__courseSeller{
+        
+    }
+  }

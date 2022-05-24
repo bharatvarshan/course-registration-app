@@ -26,8 +26,9 @@
         <h1 class="courseDetails__price">
           ₹ {{course.price}}
         </h1>
-        <form *ngIf="!isEnrolled" #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)">
-          <button type="submit" id="button" class="courseDetails__enrollButton">Enroll Now</button>
+        <form *ngIf="!isEnrolled" #enrollForm="ngForm" (ngSubmit)="makePayment(enrollForm)">
+          <button type="submit" id="button" class="courseDetails__enrollButton">Enroll Now <i
+              class="fa fa-spinner fa-spin" *ngIf="isCalled"></i></button>
         </form>
         <div *ngIf="isEnrolled">
           <p style="color: #ec008c; margin: 0;">You've already enrolled with this course!</p>

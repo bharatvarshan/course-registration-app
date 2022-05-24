@@ -12,12 +12,12 @@ router.get("/", (req, res) => {
 router.use("/", authRouter);
 router.use(
   "/user",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   userRouter
 );
 router.use(
   "/admin",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   adminRouter
 );
 

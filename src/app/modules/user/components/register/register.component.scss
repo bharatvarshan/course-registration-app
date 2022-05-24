@@ -6,7 +6,7 @@ h1,h2,h3,h4,h5,h6,p ,label,input{
 
 .register{
 background-color: black;    
-height: 100vh;
+height: fit-content;
     display: flex;
     font-family: Poppins;
 
@@ -43,6 +43,12 @@ height: 100vh;
     background-color: inherit;
     padding: 10px 10px 10px 14px;
     font-size: 16px;
+}
+
+.inputGroup > p{
+  text-align: start;
+  color: red;
+  margin-top: 4px;
 }
 
 .custom__button{
@@ -167,3 +173,36 @@ margin: 8px 20%;
   .slider.round:before {
     border-radius: 50%;
   }
+
+
+
+@media  screen and (max-width: 768px ) {
+ 
+  .register{
+ 
+    height: fit-content;
+        display: flex;
+    
+    }
+
+    .register__content > form{
+      margin: 10% ;
+  }
+
+  .register__content{
+
+    width: 100% !important;
+    background-color:#0D0F13;
+    text-align: center;
+    padding-top:  18vh;
+
+}
+.register__right{
+ display: none;
+}
+
+  .register__image{
+    visibility: hidden;
+    display: none;
+  }
+}

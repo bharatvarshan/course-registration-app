@@ -4,6 +4,7 @@ const JWTstrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
 const UserModel = require("../models/student.model");
 const refresh = require("passport-oauth2-refresh");
+const bcrypt = require("bcrypt");
 
 passport.use(
   "signup",
@@ -37,8 +38,13 @@ passport.use(
         if (!user) {
           return done(null, false, { message: "User not found" });
         }
-        const validate = await user.isValidPassword(password);
-        if (!validate) {
+        // const validate = await user.isValidPassword(password);
+        // console.log(user.password);
+        // console.log(password);
+        // console.log(bcrypt.compareSync(password, user.password));
+        // console.log(await bcrypt.compare(password, user.password));
+        if (!bcrypt.compareSync(password, user.password)) {
+          // if (!validate) {
           return done(null, false, { message: "Wrong Password" });
         }
         return done(null, user, { message: "Logged in Successfully" });
