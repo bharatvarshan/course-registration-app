@@ -27,10 +27,10 @@ scroll-snap-type: x mandatory;
 }
 
 ::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    width: 0; 
+    background: transparent; 
 }
-/* Optional: show position indicator in red */
+
 ::-webkit-scrollbar-thumb {
     background: #2e2e2e;
     height: 1px;
@@ -239,10 +239,9 @@ margin-left: 20px;
 }
 
 @media  screen and (max-width: 768px ) {
-    .browse__category{
-        width:100% !important;
-        margin: 16px;
-    padding: 0px;
+    .browse__categories > .browse__category{
+        min-width: 80%;
+        margin: 10px;
     }
 
     .browse__courseContent{
@@ -251,7 +250,7 @@ margin-left: 20px;
         margin: 10px;
         // margin-right: 10%;
         background-color: #222222;
-        padding: 1%;
+        padding: 2%;
         border-radius: 4px;
     }
     
@@ -268,7 +267,7 @@ margin-left: 20px;
         font-size: 10px;
     }
 
-    .browse__courseSeller{
-        
+    .browse__courseEnrollButton{
+        font-size: 12px;
     }
   }

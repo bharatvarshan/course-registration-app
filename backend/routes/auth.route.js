@@ -6,9 +6,7 @@ const jwt = require("jsonwebtoken");
 const studentModel = require("../models/student.model.js");
 const refreshTokenModel = require("../models/refreshToken.model.js");
 const bcrypt = require("bcrypt");
-const TwoFactor = new (require("2factor"))(
-  "3975edbd-690f-11eb-8153-0200cd936042"
-);
+const TwoFactor = new (require("2factor"))(process.env.TWOFACTOR_KEY);
 
 // authRouter.post(
 //   "/signup",
@@ -138,30 +136,32 @@ authRouter.get("/otp/get-balance", (req, res, next) => {
   );
 });
 
-authRouter.post("/otp/send-otp", (req, res, next) => {
-  console.log(req.body);
+authRouter.get("/otp/send-otp", (req, res, next) => {
   TwoFactor.sendOTP("9703681102", {
     otp: Math.floor(1000 + Math.random() * 9000),
+    // otp: "0000",
+
     template: "RECMart",
   }).then(
     (sessionID) => {
-      res.send(sessionID);
-      // console.log(sessionId);
+      res.status(200).json({ sessionCode: sessionID });
+      console.log(sessionID);
     },
     (error) => {
-      console.log(error);
+      return res.status(500).json({ error: "Internal Server Error!" });
     }
   );
 });
 
-authRouter.get("/otp/verify-otp", (req, res, next) => {
+authRouter.post("/otp/verify-otp", (req, res, next) => {
+  console.log(req.body);
   TwoFactor.verifyOTP(req.body.id, req.body.otp).then(
     (response) => {
-      res.send(response);
+      res.status(200).json({ message: response });
       console.log(response);
     },
     (error) => {
-      res.send(error);
+      res.status(200).json({ message: error });
       console.log(error);
     }
   );

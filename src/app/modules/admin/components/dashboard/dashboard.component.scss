@@ -21,8 +21,9 @@ h1,h2,h3,h4,h5,h6,p ,button,input,hr,table,tr,th,td{
 
 .dashboard__categories{
     display: flex;
+    overflow: auto;
 
-    white-space: nowrap;
+    scroll-snap-type: x mandatory;
 }
 
 
@@ -171,3 +172,34 @@ table td {
 
 }
 
+
+.browse__categories {
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    }
+    
+    ::-webkit-scrollbar {
+        width: 0; 
+        background: transparent; 
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #2e2e2e;
+        height: 1px;
+        border-radius: 999px;
+    }
+
+@media  screen and (max-width: 768px ) {
+
+    .dashboard{
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .dashboard__category{
+        width: 90%;
+    }
+
+
+}

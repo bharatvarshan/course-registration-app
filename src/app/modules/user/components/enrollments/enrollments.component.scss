@@ -98,3 +98,35 @@ a{
     color: #222222;
     border: 1px solid white;
 }
+
+
+@media  screen and (max-width: 768px ) {
+    
+
+    .enrollments__courseContent{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        // margin-right: 10%;
+        background-color: #222222;
+        padding: 2%;
+        border-radius: 4px;
+    }
+    
+    .enrollments__courseTitle{
+        font-size: 14px;
+    }
+    .enrollments__courseAuthor{
+        font-size: 12px;
+        
+    }
+
+    .courseInfo{
+        margin-right: 4px;
+        font-size: 10px;
+    }
+
+    .enrollments__courseEnrollButton{
+        font-size: 12px;
+    }
+  }

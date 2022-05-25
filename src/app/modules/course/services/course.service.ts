@@ -8,7 +8,7 @@ import { Courses } from '../../shared/models/course.model';
 })
 export class CourseService {
   url: string = 'http://35.154.176.94:3000/admin';
-  userurl: string = 'http://localhost:3000/user';
+  userurl: string = 'http://35.154.176.94:3000/user';
   coursesDetails: Courses[] = [];
   constructor(private httpClient: HttpClient) {}
 

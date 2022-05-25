@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     // console.log(element);
   }
   ngOnInit(): void {
-    console.log(this.activeElement);
+    // console.log(this.activeElement);
 
     this.adminService.getAllCourses().subscribe({
       next: (response: any) => {
@@ -59,12 +59,22 @@ export class DashboardComponent implements OnInit {
         for (let i = 0; i < response.length; i++) {
           this.users.push(response[i]);
         }
-        console.log(this.users);
+        this.users?.forEach((element: any) => {
+          console.log(element);
+
+          if (element.role === 'admin') {
+            // console.log('yes');
+
+            this.instructorsCount = this.instructorsCount + 1;
+          }
+        });
+        // console.log(this.users);
+        // console.log(this.instructorsCount);
       },
     });
 
-    let string = 'admin';
-    console.log(JSON.parse(`{"role" : "${string}"}`));
+    // let string = 'admin';
+    // console.log(JSON.parse(`{"role" : "${string}"}`));
   }
 
   removeUser(id: number) {

@@ -100,8 +100,10 @@ padding: 12%;
  
     .login{
    
-      height :100vh;
+      height :fit-content;
           display: flex;
+          padding: 10% auto;
+
       
       }
   

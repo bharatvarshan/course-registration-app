@@ -17,6 +17,7 @@ a{
     justify-content: space-between;
     font-family: Poppins;
 
+
 }
 
 .navbar__left{
@@ -141,7 +142,7 @@ color: white;
   .navbar{
     
     flex-direction: column;
-
+    width: 100%;
 }
 
 .navbar__right{

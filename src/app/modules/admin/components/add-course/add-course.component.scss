@@ -67,3 +67,17 @@ font-family: Poppins;
 .custom__button:hover {
     background-color: #006093;
 }
+
+
+@media  screen and (max-width: 767px ) {
+    .register__content > form{
+        margin: 10px;
+    }
+    .addCourse{
+        
+    padding-left: 10%;
+    padding-right: 10%; 
+
+    
+    }
+  }

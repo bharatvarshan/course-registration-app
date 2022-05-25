@@ -34,9 +34,19 @@ export class AuthService {
     return this.httpClient.post(`${this.url}/auth/refreshtoken`, payload);
   }
 
-  sendOTP(phone: string) {
+  sendOTP() {
     // console.log(JSON.parse(phone));
 
-    return this.httpClient.post(`${this.url}/otp/send-otp`, '9703681102');
+    return this.httpClient.get(`${this.url}/otp/send-otp`);
+  }
+
+  verifyOTP(verifyData: Object) {
+    // console.log(JSON.parse(phone));
+
+    return this.httpClient.post(`${this.url}/otp/verify-otp`, verifyData);
+  }
+
+  resetPassword(userObject: Object) {
+    return this.httpClient.post(`${this.url}/reset-password`, userObject);
   }
 }
